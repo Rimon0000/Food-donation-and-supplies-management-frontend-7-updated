@@ -36,7 +36,7 @@ const Login = () =>{
                          <Eye className="password-toggle mt-2" onClick={togglePasswordVisibility}></Eye>
                     </div>
                     <div className="pb-7">
-                      <Button type="submit">Submit</Button>
+                      <Button type="submit" className="uppercase">login</Button>
                     </div>
                 </form>
                 <p className="font-semibold text-center">New to Nogorful? <Link className="text-orange-800 font-bold text-lg" to="/registration">Sign Up</Link></p>
