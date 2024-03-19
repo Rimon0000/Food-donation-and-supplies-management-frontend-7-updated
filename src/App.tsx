@@ -1,11 +1,11 @@
 import './App.css'
+import MainLayout from './components/layouts/MainLayout'
 
 function App() {
 
   return (
     <>
-    <h1>This is Donation App</h1>
-      
+    <MainLayout></MainLayout>   
     </>
   )
 }
