@@ -27,7 +27,7 @@ const Navbar = () =>{
                 <div>
                     {user ? 
                     <NavLink to="/admin/dashboard"><Button>Logout</Button></NavLink>:
-                    <NavLink to="/admin/dashboard"><Button>Login</Button></NavLink>
+                    <NavLink to="/login"><Button>Login</Button></NavLink>
                     }
                 </div>
             </nav>
