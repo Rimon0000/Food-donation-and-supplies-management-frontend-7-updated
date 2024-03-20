@@ -2,10 +2,12 @@ import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Eye } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Login = () =>{
     const [showPassword, setShowPassword] = useState(false);
+    const {register, handleSubmit} = useForm()
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -25,6 +27,7 @@ const Login = () =>{
                         name="email"
                         type="email"
                         placeholder="Email"
+                        {...register}
                         required/>
                     </div>
                     <div className="mb-5">
@@ -32,6 +35,7 @@ const Login = () =>{
                         name="password"
                         type={showPassword ? "text" : "password"}
                         placeholder="Password"
+                        {...register}
                         required/>
                          <Eye className="password-toggle mt-2" onClick={togglePasswordVisibility}></Eye>
                     </div>
