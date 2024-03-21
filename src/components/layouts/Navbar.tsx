@@ -31,7 +31,7 @@ const Navbar = () => {
                     <NavLink to="/">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/">All Supplies</NavLink>
+                    <NavLink to="/allSupplies">All Supplies</NavLink>
                   </li>
                   <li>
                     <NavLink to="/">Dashboard</NavLink>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="hidden lg:block md:block">
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/">All Supplies</NavLink>
+            <NavLink to="/allSupplies">All Supplies</NavLink>
             <NavLink to="/">Dashboard</NavLink>
           </ul>
         </div>
