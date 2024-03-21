@@ -8,7 +8,7 @@ const Navbar = () =>{
 
 
     return (
-        <header className="flex place-content-center py-2">
+        <header className="bg-slate-300 flex place-content-center py-2">
             <nav className="w-full h-full max-w-[1260px] px-[20px] mx-auto flex gap-1 justify-between items-center">
                 <div className="flex gap-3 justify-center items-center">
                     <Link to='/'>
