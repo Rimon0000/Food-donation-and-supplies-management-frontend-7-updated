@@ -1,6 +1,8 @@
 import Container from "@/components/Container";
 import { useGetSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
 import SuppliesCard from "./SuppliesCard";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Supplies = () => {
   const { data } = useGetSuppliesQuery(undefined);
@@ -16,6 +18,9 @@ const Supplies = () => {
         {data?.data.map((item, index) => (
           <SuppliesCard key={index} item={item}></SuppliesCard>
         ))}
+      </div>
+      <div className="text-center mt-10">
+        <Link to={`/allSupplies`}><Button>All Supplies</Button></Link>
       </div>
     </Container>
   );

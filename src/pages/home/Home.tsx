@@ -1,3 +1,4 @@
+import DonorTestimonial from "./DonorTestimonial";
 import HeroSection from "./HeroSection";
 import Supplies from "./supplies/Supplies";
 
@@ -6,6 +7,7 @@ const Home = () =>{
         <div>
             <HeroSection></HeroSection>
             <Supplies></Supplies>
+            <DonorTestimonial></DonorTestimonial>
         </div>
     )
 }

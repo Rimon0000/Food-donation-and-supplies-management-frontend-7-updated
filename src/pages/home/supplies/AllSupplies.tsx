@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import { useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
 import SuppliesCard from "./SuppliesCard";
 
+
 const AllSupplies = () => {
   const { data } = useGetAllSuppliesQuery(undefined);
   // console.log(data?.data);
@@ -14,6 +15,7 @@ const AllSupplies = () => {
           <SuppliesCard key={index} item={item}></SuppliesCard>
         ))}
       </div>
+
     </Container>
   );
 };
