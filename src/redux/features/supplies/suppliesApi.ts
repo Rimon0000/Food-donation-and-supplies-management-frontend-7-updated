@@ -15,8 +15,14 @@ const suppliesApi = baseApi.injectEndpoints({
                 method: "GET",
                 body: suppliesInfo
             })
-        })
+        }),
+        GetSingleSupply: builder.query({
+            query: (supplyId) =>({
+                url: `/api/v1/supply/${supplyId}`,
+                method: "GET",
+            })
+        }),
     })
 })
 
-export const {useGetSuppliesQuery, useGetAllSuppliesQuery} = suppliesApi;
+export const {useGetSuppliesQuery, useGetAllSuppliesQuery, useGetSingleSupplyQuery } = suppliesApi;

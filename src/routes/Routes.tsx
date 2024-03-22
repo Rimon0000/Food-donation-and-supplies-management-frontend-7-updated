@@ -6,6 +6,7 @@ import Home from "@/pages/home/Home";
 import Register from "@/pages/authentication/Register";
 import Login from "@/pages/authentication/Login";
 import AllSupplies from "@/pages/home/supplies/AllSupplies";
+import SupplyDetails from "@/pages/home/supplies/SupplyDetails";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         {
           path: "/registration",
           element: <Register></Register>,
+        },
+        {
+          path: "/supply/:id",
+          element: <SupplyDetails></SupplyDetails>,
         },
         {
           path: "/allSupplies",
