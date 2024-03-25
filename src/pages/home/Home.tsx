@@ -2,6 +2,7 @@ import AboutUs from "./AboutUs";
 import DonorTestimonial from "./DonorTestimonial";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
+import UpcomingEvent from "./UpcomingEvent";
 import Supplies from "./supplies/Supplies";
 
 const Home = () =>{
@@ -12,6 +13,7 @@ const Home = () =>{
             <DonorTestimonial></DonorTestimonial>
             <Gallery></Gallery>
             <AboutUs></AboutUs>
+            <UpcomingEvent></UpcomingEvent>
         </div>
     )
 }
