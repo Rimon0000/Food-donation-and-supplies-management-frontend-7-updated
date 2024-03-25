@@ -3,6 +3,7 @@ import DonorTestimonial from "./DonorTestimonial";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
 import UpcomingEvent from "./UpcomingEvent";
+import Volunteer from "./Volunteer";
 import Supplies from "./supplies/Supplies";
 
 const Home = () =>{
@@ -13,7 +14,8 @@ const Home = () =>{
             <DonorTestimonial></DonorTestimonial>
             <Gallery></Gallery>
             <AboutUs></AboutUs>
-            <UpcomingEvent></UpcomingEvent>
+            <Volunteer></Volunteer>
+            {/* <UpcomingEvent></UpcomingEvent> */}
         </div>
     )
 }
