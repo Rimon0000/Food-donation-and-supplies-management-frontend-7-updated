@@ -16,7 +16,7 @@ const SuppliesCard = ({item}) =>{
                     <p className="">Category: <span className="text-green-900">{category}</span></p>
                     <p>Quantity: <span className="text-green-900">{quantity}</span></p>
                 </div>
-                <Link to={`/supply/${_id}`}><Button>View Detail</Button></Link>
+                <Link to={`/supplies/${_id}`}><Button>View Detail</Button></Link>
             </div>
         </div>
     )

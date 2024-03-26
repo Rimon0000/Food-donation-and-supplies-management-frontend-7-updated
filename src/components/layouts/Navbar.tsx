@@ -34,7 +34,7 @@ const Navbar = () => {
                     <NavLink to="/allSupplies">All Supplies</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/">Dashboard</NavLink>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
                   </li>
                 </ul>
               </NavigationMenuContent>
@@ -46,7 +46,7 @@ const Navbar = () => {
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allSupplies">All Supplies</NavLink>
-            <NavLink to="/">Dashboard</NavLink>
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </ul>
         </div>
         <div>

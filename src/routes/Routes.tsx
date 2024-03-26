@@ -7,6 +7,8 @@ import Register from "@/pages/authentication/Register";
 import Login from "@/pages/authentication/Login";
 import AllSupplies from "@/pages/home/supplies/AllSupplies";
 import SupplyDetails from "@/pages/home/supplies/SupplyDetails";
+import DashboardLayout from "@/components/layouts/DashboardLayout";
+import Dashboard from "@/pages/dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
           element: <Register></Register>,
         },
         {
-          path: "/supply/:id",
+          path: "/supplies/:id",
           element: <SupplyDetails></SupplyDetails>,
         },
         {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
         },
     ]
   },
+  {
+    path: "dashboard",
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        index: true,
+        element: <Dashboard></Dashboard>
+      }
+    ]
+  }
 ]);
 
 export default router;
