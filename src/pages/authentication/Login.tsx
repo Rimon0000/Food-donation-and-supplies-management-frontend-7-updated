@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { verifyToken } from "@/utils/verifyToken";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -29,8 +30,10 @@ const Login = () => {
         password: data.password,
       };
 
-      await login(loginInfo).unwrap();
-      dispatch(setUser({ user: loginInfo }));
+
+      const res = await login(loginInfo).unwrap()
+      const token = verifyToken(res.token);
+      dispatch(setUser({user: loginInfo, token: token}))
       toast.success("Login Done.", { id: toastId, duration: 2000 });
       navigate("/");
     } catch (error) {

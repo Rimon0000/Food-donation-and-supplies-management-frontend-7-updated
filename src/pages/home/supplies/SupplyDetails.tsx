@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import { Button } from "@/components/ui/button";
+import DonationModal from "@/components/donation/DonationModal";
 import { useGetSingleSupplyQuery } from "@/redux/features/supplies/suppliesApi";
 import { Link, useParams } from "react-router-dom";
 
@@ -36,7 +36,7 @@ const SupplyDetails = () => {
                 {supply?.data?.description}
               </span>
             </p>
-            <Button className="mt-8">Donate Now</Button>
+            <DonationModal></DonationModal>
           </div>
         </div>
       </div>
