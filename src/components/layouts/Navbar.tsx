@@ -2,9 +2,11 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger,} from "@/components/ui/navigation-menu";
 import { Link, NavLink } from "react-router-dom";
+import { useAppSelector } from "@/redux/hook";
+import { useCurrentUser } from "@/redux/features/auth/authSlice";
 
 const Navbar = () => {
-  const user = "";
+  const currentUser = useAppSelector(useCurrentUser);
 
   return (
     <header className="bg-slate-300 flex place-content-center py-2">
@@ -46,12 +48,12 @@ const Navbar = () => {
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allSupplies">All Supplies</NavLink>
-            <NavLink to="/dashboard">Dashboard</NavLink>
+            {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
           </ul>
         </div>
         <div>
-          <NavLink to={user ? "/logout" : "/login"}>
-            <Button>{user ? "Logout" : "Login"}</Button>
+          <NavLink to={currentUser ? "/logout" : "/login"}>
+            <Button>{currentUser ? "Logout" : "Login"}</Button>
           </NavLink>
         </div>
       </nav>
