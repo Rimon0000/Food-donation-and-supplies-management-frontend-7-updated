@@ -10,6 +10,8 @@ import { DialogClose } from "@radix-ui/react-dialog"
 import { FormEvent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
+import { useQueryClient } from 'react-query';
+
 
 const DonationModal = ({supply}) =>{
     const [email, setEmail] = useState("")
@@ -18,9 +20,10 @@ const DonationModal = ({supply}) =>{
     const navigate = useNavigate();
 
     const currentUser = useAppSelector(useCurrentUser);
+
+    const queryClient = useQueryClient();
     
     const [addDonation] = useAddDonationMutation()
-    // console.log({data, isLoading, isError, isSuccess});
 
     // Set default values for email and category if they're available
     useEffect(() => {
@@ -29,7 +32,7 @@ const DonationModal = ({supply}) =>{
       }
       if (supply && supply?.data) {
           setCategory(supply?.data?.category || "");
-          setQuantity(supply?.data?.quantity || "");
+          // setQuantity(supply?.data?.quantity || "");
       }
   }, [currentUser, supply]);
 
@@ -46,6 +49,7 @@ const DonationModal = ({supply}) =>{
         // for server state 
         addDonation(donationDetails)
         toast.success("Donation successful.");
+        queryClient.invalidateQueries("donation");
         navigate("/dashboard");
     }
 
@@ -73,6 +77,7 @@ const DonationModal = ({supply}) =>{
                       id="email"
                       value={email}
                       className="col-span-3"
+                      required
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
@@ -83,6 +88,7 @@ const DonationModal = ({supply}) =>{
                       id="category"
                       value={category}
                       className="col-span-3"
+                      required
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
@@ -91,8 +97,9 @@ const DonationModal = ({supply}) =>{
                     </Label>
                     <Input type="number" onBlur={(e) => setQuantity(e.target.value)}
                       id="quantity"
-                      value={quantity}
+                      // value={quantity}
                       className="col-span-3"
+                      required
                     />
                   </div>
               

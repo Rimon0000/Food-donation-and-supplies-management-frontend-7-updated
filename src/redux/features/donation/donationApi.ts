@@ -7,13 +7,15 @@ const donationApi = baseApi.injectEndpoints({
                 url: "/api/v1/add-donation",
                 method: "POST",
                 body: donationInfo
-            })
+            }),
+            invalidatesTags: ['donation'],
         }),
         GetDonationByEmail: builder.query({
             query: (email) =>({
                 url: `/api/v1/donation/${email}`,
                 method: "GET",
-            })
+            }),
+            providesTags: ['donation'],
         }),
     })
 })

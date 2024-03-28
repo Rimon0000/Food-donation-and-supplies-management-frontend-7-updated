@@ -19,7 +19,7 @@ const donationSlice = createSlice({
     initialState,
     reducers: {
         addDonation: (state, action: PayloadAction<TDonation>) => {
-            state.donations.push({...action.payload})
+            state.donations.push(action.payload);
           },
         },
 

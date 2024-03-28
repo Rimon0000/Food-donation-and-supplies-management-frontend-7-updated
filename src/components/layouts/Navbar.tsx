@@ -2,11 +2,17 @@ import { Button } from "../ui/button";
 import { Menu } from "lucide-react";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger,} from "@/components/ui/navigation-menu";
 import { Link, NavLink } from "react-router-dom";
-import { useAppSelector } from "@/redux/hook";
-import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
 
 const Navbar = () => {
   const currentUser = useAppSelector(useCurrentUser);
+  const dispatch = useAppDispatch()
+
+  //handle logout
+  const handleLogout = () =>{
+    dispatch(logout())
+  }
 
   return (
     <header className="bg-slate-300 flex place-content-center py-2">
@@ -52,8 +58,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div>
-          <NavLink to={currentUser ? "/logout" : "/login"}>
-            <Button>{currentUser ? "Logout" : "Login"}</Button>
+          <NavLink to={currentUser ? "/" : "/login"}>
+            <Button onClick={handleLogout}>{currentUser ? "Logout" : "Login"}</Button>
           </NavLink>
         </div>
       </nav>
