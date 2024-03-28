@@ -7,11 +7,11 @@ import { useCurrentUser } from "@/redux/features/auth/authSlice"
 import { useAddDonationMutation } from "@/redux/features/donation/donationApi"
 import { useAppSelector } from "@/redux/hook"
 import { DialogClose } from "@radix-ui/react-dialog"
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
-const DonationModal = () =>{
+const DonationModal = ({supply}) =>{
     const [email, setEmail] = useState("")
     const [category, setCategory] = useState("")
     const [quantity, setQuantity] = useState("")
@@ -19,11 +19,19 @@ const DonationModal = () =>{
 
     const currentUser = useAppSelector(useCurrentUser);
     
-    
-    const [addDonation, {data, isLoading, isError, isSuccess}] = useAddDonationMutation()
-    console.log({data, isLoading, isError, isSuccess});
+    const [addDonation] = useAddDonationMutation()
+    // console.log({data, isLoading, isError, isSuccess});
 
-
+    // Set default values for email and category if they're available
+    useEffect(() => {
+      if (currentUser) {
+          setEmail(currentUser?.email);
+      }
+      if (supply && supply?.data) {
+          setCategory(supply?.data?.category || "");
+          setQuantity(supply?.data?.quantity || "");
+      }
+  }, [currentUser, supply]);
 
     //Handle Submit
     const handleSubmit = (e: FormEvent) =>{
@@ -50,9 +58,9 @@ const DonationModal = () =>{
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
-              <DialogTitle>Add Task</DialogTitle>
+              <DialogTitle>Add Donation</DialogTitle>
               <DialogDescription>
-                Add your tasks that what you want to finish.
+                Please donate to help us reach our goal.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit}>
@@ -63,7 +71,7 @@ const DonationModal = () =>{
                     </Label>
                     <Input onBlur={(e) => setEmail(e.target.value)}
                       id="email"
-                      defaultValue={currentUser?.email}
+                      value={email}
                       className="col-span-3"
                     />
                   </div>
@@ -73,6 +81,7 @@ const DonationModal = () =>{
                     </Label>
                     <Input onBlur={(e) => setCategory(e.target.value)}
                       id="category"
+                      value={category}
                       className="col-span-3"
                     />
                   </div>
@@ -82,6 +91,7 @@ const DonationModal = () =>{
                     </Label>
                     <Input type="number" onBlur={(e) => setQuantity(e.target.value)}
                       id="quantity"
+                      value={quantity}
                       className="col-span-3"
                     />
                   </div>
@@ -89,7 +99,7 @@ const DonationModal = () =>{
                 </div>
                 <div className="flex justify-end">
                     <DialogClose asChild>
-                        <Button type="submit">Save changes</Button>
+                        <Button type="submit">Confirm</Button>
                     </DialogClose>
                 </div>
             </form> 

@@ -36,7 +36,7 @@ const SupplyDetails = () => {
                 {supply?.data?.description}
               </span>
             </p>
-            <DonationModal></DonationModal>
+            <DonationModal supply={supply}></DonationModal>
           </div>
         </div>
       </div>

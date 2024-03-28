@@ -9,7 +9,13 @@ const donationApi = baseApi.injectEndpoints({
                 body: donationInfo
             })
         }),
+        GetDonationByEmail: builder.query({
+            query: (email) =>({
+                url: `/api/v1/donation/${email}`,
+                method: "GET",
+            })
+        }),
     })
 })
 
-export const {useAddDonationMutation  } = donationApi;
+export const {useAddDonationMutation , useGetDonationByEmailQuery } = donationApi;

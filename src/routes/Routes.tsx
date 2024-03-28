@@ -44,6 +44,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard></Dashboard>
+      },
+      {
+        path: "/dashboard/:email",
+        element: <Dashboard></Dashboard>
+
       }
     ]
   }

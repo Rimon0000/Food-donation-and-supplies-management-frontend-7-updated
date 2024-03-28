@@ -19,13 +19,9 @@ const donationSlice = createSlice({
     initialState,
     reducers: {
         addDonation: (state, action: PayloadAction<TDonation>) => {
-            console.log("inside donation slice", action.payload);
-            return {
-              ...state,
-              donations: [...state.donations, action.payload]
-            };
+            state.donations.push({...action.payload})
           },
-        }
+        },
 
 })
 

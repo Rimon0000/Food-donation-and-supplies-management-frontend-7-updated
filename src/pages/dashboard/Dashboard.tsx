@@ -1,4 +1,8 @@
+import { useCurrentUser } from '@/redux/features/auth/authSlice';
+import { useGetDonationByEmailQuery } from '@/redux/features/donation/donationApi';
+import { useAppSelector } from '@/redux/hook';
 import React, { PureComponent } from 'react';
+import { useParams } from 'react-router-dom';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 const data01 = [
@@ -23,6 +27,20 @@ const data02 = [
 
 
 const Dashboard = ()=>{
+  const currentUser = useAppSelector(useCurrentUser);
+
+
+  const { data, error, isLoading } = useGetDonationByEmailQuery(currentUser?.email);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error?.message}</div>;
+  }
+
+  console.log("Data:", data)
     
     return (
         <ResponsiveContainer width="100%" height="100%">
