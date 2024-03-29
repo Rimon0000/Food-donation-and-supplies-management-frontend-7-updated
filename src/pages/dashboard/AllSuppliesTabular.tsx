@@ -1,3 +1,4 @@
+import UpdateSupplyModal from "@/components/donation/UpdateSupplyModal";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
@@ -6,6 +7,8 @@ import { Link } from "react-router-dom";
 
 const AllSuppliesTabular = () =>{
   const { data } = useGetAllSuppliesQuery(undefined);
+
+  
 
 
     return (
@@ -24,27 +27,16 @@ const AllSuppliesTabular = () =>{
               </TableHeader>
               <TableBody>
                 {data?.data?.map((item) => (
-                  <TableRow key={item.item}>
-                    <TableCell className="font-medium">{item.name}</TableCell>
+                  <TableRow key={item._id}>
+                    <TableCell className="font-medium">{item.title}</TableCell>
                     <TableCell>{item.category}</TableCell>
                     <TableCell>{item.quantity}</TableCell>
-                    <TableCell className="text-right flex items-center justify-end place-content-center mt-7">
-                          
-                          <Button variant="destructive" 
-                        //   onClick={() => handleDelete(task._id)}
-                            className=" hover:bg-slate-700 px-2 py-2 rounded-md"
-                          >
-                            <Trash2/>
-                          </Button>
-                          <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>
-                          <Link 
-                        //   to={`update-task/${task._id}`}
-                          >
-                            <Button className="hover:bg-slate-600 hover:text-white  px-2 py-2 rounded-md" variant="secondary">
-                              <FilePenLine></FilePenLine>
-                            </Button>
-                          </Link>
-                     
+                    <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
+                      <Button variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
+                        <Trash2/>
+                      </Button>
+                      <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>                    
+                      <UpdateSupplyModal item={item}></UpdateSupplyModal>
                       </TableCell>
                   </TableRow>
                 ))}

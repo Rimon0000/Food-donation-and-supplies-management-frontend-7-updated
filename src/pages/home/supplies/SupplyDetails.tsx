@@ -15,7 +15,7 @@ const SupplyDetails = () => {
         </div>
         <div>
           <h1 className="font-bold text-3xl text-color">
-            {supply?.data?.name}
+            {supply?.data?.title}
           </h1>
           <div>
             <p className="font-semibold text-color my-3">
