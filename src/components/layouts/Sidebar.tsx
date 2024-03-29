@@ -10,7 +10,7 @@ const Sidebar = () => {
       </div>
       <nav className="flex flex-col gap-2 px-4 lg:px-5 py-1">
         <NavLink
-          to="/all-supplies"
+          to="/dashboard/supplies"
           className={({ isActive }) =>
             cn(
               "p-2 bg-green-300 rounded-md transition-all flex gap-2 items-center",

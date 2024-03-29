@@ -9,6 +9,7 @@ import AllSupplies from "@/pages/home/supplies/AllSupplies";
 import SupplyDetails from "@/pages/home/supplies/SupplyDetails";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Dashboard from "@/pages/dashboard/Dashboard";
+import AllSuppliesTabular from "@/pages/dashboard/AllSuppliesTabular";
 
 const router = createBrowserRouter([
   {
@@ -46,10 +47,10 @@ const router = createBrowserRouter([
         element: <Dashboard></Dashboard>
       },
       {
-        path: "/dashboard/:email",
-        element: <Dashboard></Dashboard>
-
+        path: "supplies",
+        element: <AllSuppliesTabular></AllSuppliesTabular>
       }
+
     ]
   }
 ]);
