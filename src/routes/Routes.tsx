@@ -10,6 +10,7 @@ import SupplyDetails from "@/pages/home/supplies/SupplyDetails";
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Dashboard from "@/pages/dashboard/Dashboard";
 import AllSuppliesTabular from "@/pages/dashboard/AllSuppliesTabular";
+import AddSupply from "@/pages/dashboard/AddSupply";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "supplies",
         element: <AllSuppliesTabular></AllSuppliesTabular>
+      },
+      {
+        path: "create-supply",
+        element: <AddSupply></AddSupply>
       }
 
     ]

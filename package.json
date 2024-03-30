@@ -39,6 +39,7 @@
     "redux-persist": "^6.0.0",
     "sonner": "^1.4.3",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.10.7",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   },

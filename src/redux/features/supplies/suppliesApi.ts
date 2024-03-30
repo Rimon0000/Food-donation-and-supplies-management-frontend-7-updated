@@ -2,6 +2,15 @@ import { baseApi } from "@/redux/api/baseApi"
 
 const suppliesApi = baseApi.injectEndpoints({
     endpoints: (builder) =>({
+        addSupply: builder.mutation({
+            query: (supplyInfo) =>({
+                url: "/api/v1/create-supply",
+                method: "POST",
+                body: supplyInfo
+            }),
+            invalidatesTags: ['supply'],
+        }),
+        
         getSupplies: builder.query({
             query: (suppliesInfo) =>({
                 url: "/api/v1/filter-supplies",
@@ -39,4 +48,4 @@ const suppliesApi = baseApi.injectEndpoints({
     })
 })
 
-export const {useGetSuppliesQuery, useGetAllSuppliesQuery, useGetSingleSupplyQuery, useUpdateSupplyMutation } = suppliesApi;
+export const {useAddSupplyMutation, useGetSuppliesQuery, useGetAllSuppliesQuery, useGetSingleSupplyQuery, useUpdateSupplyMutation } = suppliesApi;

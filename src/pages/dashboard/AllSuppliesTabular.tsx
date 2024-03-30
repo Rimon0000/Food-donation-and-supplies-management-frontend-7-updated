@@ -2,18 +2,54 @@ import UpdateSupplyModal from "@/components/donation/UpdateSupplyModal";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
-import { FilePenLine, Trash2 } from "lucide-react";
+import { addSupply, removeSupply } from "@/redux/features/supplies/suppliesSlice";
+import { useAppDispatch } from "@/redux/hook";
+import { Trash2 } from "lucide-react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const AllSuppliesTabular = () =>{
   const { data } = useGetAllSuppliesQuery(undefined);
+  const dispatch = useAppDispatch()
 
-  
+  // useEffect(() => {
+  //   if (data) {
+  //     data?.data?.forEach((supply) => {
+  //       dispatch(addSupply(supply));
+  //     });
+  //   }
+  // }, [data, dispatch]);
+
+  //handle delete
+   const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeSupply(id));
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+  }
 
 
     return (
         <div>
             <h1 className="text-center text-xl font-bold my-5">All Supplies</h1>
+            <div className=" my-3 mr-5 flex items-end justify-end">
+              <Link to="/dashboard/create-supply"><Button>Add New Supply</Button></Link>
+            </div>
 
             <Table>
               <TableCaption>A list of your recent items.</TableCaption>
@@ -32,7 +68,7 @@ const AllSuppliesTabular = () =>{
                     <TableCell>{item.category}</TableCell>
                     <TableCell>{item.quantity}</TableCell>
                     <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
-                      <Button variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
+                      <Button onClick={() => handleDelete(item._id)} variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
                         <Trash2/>
                       </Button>
                       <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>                    
