@@ -1,28 +1,21 @@
 import UpdateSupplyModal from "@/components/donation/UpdateSupplyModal";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
-import { addSupply, removeSupply } from "@/redux/features/supplies/suppliesSlice";
+import { useDeleteSupplyMutation, useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
+import { removeSupply } from "@/redux/features/supplies/suppliesSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { Trash2 } from "lucide-react";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const AllSuppliesTabular = () =>{
   const { data } = useGetAllSuppliesQuery(undefined);
   const dispatch = useAppDispatch()
+  const [deleteSupply] = useDeleteSupplyMutation();
 
-  // useEffect(() => {
-  //   if (data) {
-  //     data?.data?.forEach((supply) => {
-  //       dispatch(addSupply(supply));
-  //     });
-  //   }
-  // }, [data, dispatch]);
 
   //handle delete
-   const handleDelete = (id) => {
+   const handleDelete = async(id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -31,8 +24,9 @@ const AllSuppliesTabular = () =>{
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
+    }).then( async(result) => {
       if (result.isConfirmed) {
+        await deleteSupply(id).unwrap();
         dispatch(removeSupply(id));
         Swal.fire({
           title: "Deleted!",
