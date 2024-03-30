@@ -11,6 +11,7 @@ import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Dashboard from "@/pages/dashboard/Dashboard";
 import AllSuppliesTabular from "@/pages/dashboard/AllSuppliesTabular";
 import AddSupply from "@/pages/dashboard/AddSupply";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard></Dashboard>
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
       },
       {
         path: "supplies",

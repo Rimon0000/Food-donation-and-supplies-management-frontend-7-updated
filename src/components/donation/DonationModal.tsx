@@ -77,6 +77,7 @@ const DonationModal = ({supply}) =>{
                       id="email"
                       value={email}
                       className="col-span-3"
+                      placeholder="Please Login"
                       required
                     />
                   </div>
