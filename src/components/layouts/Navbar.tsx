@@ -4,6 +4,20 @@ import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMe
 import { Link, NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
+import { motion } from "framer-motion";
+
+
+//for animation
+const navbarAnimation = {
+  initial: { scale: 0 },
+  animate: {
+    scale: 1,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
 
 const Navbar = () => {
   const currentUser = useAppSelector(useCurrentUser);
@@ -17,7 +31,7 @@ const Navbar = () => {
   return (
     <header className="bg-slate-300 flex place-content-center py-2">
       <nav className="w-full h-full max-w-[1260px] px-[20px] mx-auto flex gap-1 justify-between items-center">
-        <div className="flex gap-3 justify-center items-center">
+        <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
             <img
               className="w-12 h-12 rounded-lg lg:ml-5"
@@ -26,7 +40,7 @@ const Navbar = () => {
             />
           </Link>
           <a className="font-bold text-xl">Nogorful</a>
-        </div>
+        </motion.div>
         <NavigationMenu className="lg:hidden md:hidden">
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -34,7 +48,7 @@ const Navbar = () => {
                 <Menu></Menu>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="font-semibold px-2 w-[107px]">
+                <motion.ul className="font-semibold px-2 w-[107px]" variants={navbarAnimation}  initial="initial"  animate="animate">
                   <li>
                     <NavLink to="/">Home</NavLink>
                   </li>
@@ -44,24 +58,24 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/dashboard">Dashboard</NavLink>
                   </li>
-                </ul>
+                </motion.ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="hidden lg:block md:block">
+        <motion.div className="hidden lg:block md:block" variants={navbarAnimation}  initial="initial"  animate="animate">
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allSupplies">All Supplies</NavLink>
             {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
           </ul>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div variants={navbarAnimation}  initial="initial"  animate="animate">
           <NavLink to={currentUser ? "/" : "/login"}>
             <Button onClick={handleLogout}>{currentUser ? "Logout" : "Login"}</Button>
           </NavLink>
-        </div>
+        </motion.div>
       </nav>
     </header>
   );

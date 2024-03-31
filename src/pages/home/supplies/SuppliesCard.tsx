@@ -5,7 +5,7 @@ const SuppliesCard = ({item}) =>{
     const {_id, image, title, category, quantity} = item;
 
     return (
-        <div className="bg-slate-50 shadow-md rounded-lg  border-2 p-5 mt-10">
+        <div className="bg-slate-50 shadow-md rounded-lg  border-2 p-5 mt-10" data-aos="fade-up" data-aos-duration="2000">
             <div className="">
               <img className=" rounded-lg"
                 src={image} alt=""/>

@@ -1,5 +1,8 @@
 import Container from "@/components/Container";
 
+
+
+
 const Gallery = () => {
   return (
     <Container>
@@ -15,28 +18,28 @@ const Gallery = () => {
             alt=""
           />
         </div>
-        <div>
+        <div >
           <img
             className="rounded-lg"
             src="https://i.ibb.co/dWwvKSg/img6.jpg"
             alt=""
           />
         </div>
-        <div>
+        <div >
           <img
             className="rounded-lg"
             src="https://i.ibb.co/cccJtng/img33.jpg"
             alt=""
           />
         </div>
-        <div>
+        <div >
           <img
             className="rounded-lg lg:max-h-[543px] w-full"
             src="https://i.ibb.co/P11wtqq/img3.jpg"
             alt=""
           />
         </div>
-        <div>
+        <div >
           <div className="mb-8">
             <img
               className="rounded-lg"
@@ -44,7 +47,7 @@ const Gallery = () => {
               alt=""
             />
           </div>
-          <div>
+          <div >
             <img
               className="rounded-lg"
               src="https://i.ibb.co/JkHdL8L/img44.jpg"
@@ -52,7 +55,7 @@ const Gallery = () => {
             />
           </div>
         </div>
-        <div>
+        <div >
           <img
             className="rounded-lg lg:max-h-[543px] w-full"
             src="https://i.ibb.co/GVvhZZG/img342.jpg"
