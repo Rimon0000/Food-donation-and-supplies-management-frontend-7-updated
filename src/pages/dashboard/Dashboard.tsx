@@ -1,13 +1,21 @@
 import { useCurrentUser } from '@/redux/features/auth/authSlice';
 import { useGetDonationByEmailQuery } from '@/redux/features/donation/donationApi';
 import { useAppSelector } from '@/redux/hook';
-import { PieChart, Pie, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 
+type TDonationItem = {
+  category: string;
+  quantity: number;
+}
+
+export type TUserData = {
+  email: string;
+}
 
 
 const Dashboard = ()=>{
-  const currentUser = useAppSelector(useCurrentUser);
-  const { data } = useGetDonationByEmailQuery(currentUser?.email, {refetchInterval: 5000});
+  const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
+  const { data } = useGetDonationByEmailQuery(currentUser?.email);
 
   if(!data){
     return <div>loading.........</div>
@@ -20,7 +28,7 @@ const Dashboard = ()=>{
   //   }))
   // : [];
 
-  const chartData = data?.data?.map(item => ({
+  const chartData = data?.data?.map((item : TDonationItem) => ({
     name: item.category,
     value: item.quantity
   }));

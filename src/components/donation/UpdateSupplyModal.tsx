@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger,
 } from "@/components/ui/dialog"
@@ -7,15 +8,16 @@ import { DialogClose } from "@radix-ui/react-dialog"
 import { toast } from "sonner"
 import { useUpdateSupplyMutation } from "@/redux/features/supplies/suppliesApi"
 import { FilePenLine } from "lucide-react"
+import { TSupplyItem } from "@/pages/home/supplies/AllSupplies"
 
 
-const UpdateSupplyModal = ({item}) =>{
+const UpdateSupplyModal = ({item}: {item: TSupplyItem}) =>{
     const {_id, title, category, quantity} = item
     
     const [updateSupply] = useUpdateSupplyMutation()
 
   //update supply
-  const handleUpdate = (e) =>{
+  const handleUpdate = (e: any) =>{
     e.preventDefault()
 
     const form = e.target 

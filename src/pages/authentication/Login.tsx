@@ -5,10 +5,15 @@ import { setUser } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { Eye } from "lucide-react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { verifyToken } from "@/utils/verifyToken";
+
+type TLoginFormData = {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +26,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit : SubmitHandler<TLoginFormData> = async (data) => {
     const toastId = toast.loading("logging in");
 
     try {

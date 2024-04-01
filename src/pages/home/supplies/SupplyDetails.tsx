@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import DonationModal from "@/components/donation/DonationModal";
 import { useGetSingleSupplyQuery } from "@/redux/features/supplies/suppliesApi";
-import { Link, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 
 const SupplyDetails = () => {
   const { id } = useParams();

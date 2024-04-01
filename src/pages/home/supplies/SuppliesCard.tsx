@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { TSupplyItem } from "./AllSupplies";
 
-const SuppliesCard = ({item}) =>{
+const SuppliesCard = ({item}: {item: TSupplyItem}) =>{
     const {_id, image, title, category, quantity} = item;
 
     return (

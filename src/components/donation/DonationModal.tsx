@@ -11,15 +11,19 @@ import { FormEvent, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 import { useQueryClient } from 'react-query';
+import { TSupplyItem } from "@/pages/home/supplies/AllSupplies"
+import { TUserData } from "@/pages/dashboard/Dashboard"
 
 
-const DonationModal = ({supply}) =>{
+
+
+const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
     const [email, setEmail] = useState("")
     const [category, setCategory] = useState("")
     const [quantity, setQuantity] = useState("")
     const navigate = useNavigate();
 
-    const currentUser = useAppSelector(useCurrentUser);
+    const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
 
     const queryClient = useQueryClient();
     

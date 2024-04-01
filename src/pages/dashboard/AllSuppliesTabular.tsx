@@ -7,6 +7,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { TSupplyItem } from "../home/supplies/AllSupplies";
 
 const AllSuppliesTabular = () =>{
   const { data } = useGetAllSuppliesQuery(undefined);
@@ -15,7 +16,7 @@ const AllSuppliesTabular = () =>{
 
 
   //handle delete
-   const handleDelete = async(id) => {
+   const handleDelete = async(id: string) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -55,7 +56,7 @@ const AllSuppliesTabular = () =>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item) => (
+                {data?.data?.map((item : TSupplyItem) => (
                   <TableRow key={item._id}>
                     <TableCell className="font-medium">{item.title}</TableCell>
                     <TableCell>{item.category}</TableCell>
