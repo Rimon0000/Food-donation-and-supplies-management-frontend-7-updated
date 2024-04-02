@@ -17,7 +17,7 @@ type TRegistrationFormData = {
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<TRegistrationFormData>();
   const [registration] = useRegistrationMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
