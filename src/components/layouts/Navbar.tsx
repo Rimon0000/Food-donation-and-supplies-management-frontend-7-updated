@@ -75,6 +75,9 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/dashboard">D-Leaderboard</NavLink>
                   </li>
+                  <li>
+                    <NavLink to="/community">Community</NavLink>
+                  </li>
                 </motion.ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -87,6 +90,7 @@ const Navbar = () => {
             <NavLink to="/allSupplies">All Supplies</NavLink>
             {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
             <NavLink to="/leaderboard">D-Leaderboard</NavLink>
+            <NavLink to="/community">Community</NavLink>
 
           </ul>
         </motion.div>

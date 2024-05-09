@@ -13,6 +13,7 @@ import AllSuppliesTabular from "@/pages/dashboard/AllSuppliesTabular";
 import AddSupply from "@/pages/dashboard/AddSupply";
 import PrivateRoute from "./PrivateRoute";
 import DLeaderboard from "@/pages/leaderboard/DLeaderboard";
+import Community from "@/pages/CommunityGraWall/Community";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         {
           path: "/leaderboard",
           element: <DLeaderboard></DLeaderboard>
+        },
+        {
+          path: "/community",
+          element: <Community></Community>
         },
     ]
   },
