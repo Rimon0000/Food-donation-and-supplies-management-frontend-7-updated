@@ -7,8 +7,8 @@ const UpcomingEvent = () =>{
     return (
         <Container>
             <h1 className="text-center text-6xl font-bold my-2 max-w-[20ch] grid mx-auto">Be ready for our upcoming charity events</h1>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div className="shadow-xl rounded-2xl" data-aos="fade-right" data-aos-duration="2000">
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-full">
+                <div className="shadow-xl rounded-2xl w-full" data-aos="fade-right" data-aos-duration="2000">
                     <img className="rounded-t-2xl" src="https://i.ibb.co/SKdYpBc/Charity-caring-is-the-new-generation-guide-636x340.jpg" alt="" />
                     <div className="p-8">
                         <div className="flex justify-between">
@@ -32,7 +32,7 @@ const UpcomingEvent = () =>{
                 </div>
 
 
-                <div className="shadow-xl rounded-2xl" data-aos="fade-left" data-aos-duration="2000">
+                <div className="shadow-xl rounded-2xl w-full" data-aos="fade-right" data-aos-duration="2000">
                     <img className="rounded-t-2xl" src="https://i.ibb.co/2krx920/Start-a-volunteer-to-reach-your-creative-people-636x340.jpg" alt="" />
                     <div className="p-8">
                         <div className="flex justify-between">
@@ -64,3 +64,5 @@ const UpcomingEvent = () =>{
 }
 
 export default UpcomingEvent;
+
+// data-aos="fade-right" data-aos-duration="2000"

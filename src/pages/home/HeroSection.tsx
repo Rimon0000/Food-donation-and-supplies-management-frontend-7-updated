@@ -20,7 +20,8 @@ const HeroSection = () => {
                   </div>
                 </div>
                </div> 
-               <div className="carousel-item relative w-full">
+               
+               {/* <div className="carousel-item relative w-full">
                  <img className="w-full rounded-xl" src="https://i.ibb.co/JQwBw7h/img2.jpg"/>
                  <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                   <div className="text-white space-y-8 lg:p-20 p-2 lg:w-4/5">
@@ -79,7 +80,7 @@ const HeroSection = () => {
                   </div>
                   </div>
                 </div>
-               </div> 
+               </div>  */}
             </AwesomeSlider> 
         </Container>
     );

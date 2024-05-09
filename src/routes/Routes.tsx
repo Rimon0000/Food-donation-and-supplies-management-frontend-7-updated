@@ -12,6 +12,8 @@ import Dashboard from "@/pages/dashboard/Dashboard";
 import AllSuppliesTabular from "@/pages/dashboard/AllSuppliesTabular";
 import AddSupply from "@/pages/dashboard/AddSupply";
 import PrivateRoute from "./PrivateRoute";
+import DLeaderboard from "@/pages/leaderboard/DLeaderboard";
+
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,10 @@ const router = createBrowserRouter([
         {
           path: "/allSupplies",
           element: <AllSupplies></AllSupplies>,
+        },
+        {
+          path: "/leaderboard",
+          element: <DLeaderboard></DLeaderboard>
         },
     ]
   },

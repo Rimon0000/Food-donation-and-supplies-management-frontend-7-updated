@@ -9,7 +9,9 @@ type TDonationItem = {
 }
 
 export type TUserData = {
+  name: string;
   email: string;
+
 }
 
 
@@ -20,13 +22,6 @@ const Dashboard = ()=>{
   if(!data){
     return <div>loading.........</div>
   }
-
-  // const chartData = data?.data && Array.isArray(data?.data)
-  // ? data.data.map(item => ({
-  //     name: item.category,
-  //     value: item.quantity
-  //   }))
-  // : [];
 
   const chartData = data?.data?.map((item : TDonationItem) => ({
     name: item.category,

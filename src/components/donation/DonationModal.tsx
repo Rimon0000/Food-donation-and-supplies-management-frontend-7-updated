@@ -15,15 +15,15 @@ import { TSupplyItem } from "@/pages/home/supplies/AllSupplies"
 import { TUserData } from "@/pages/dashboard/Dashboard"
 
 
-
-
 const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
+    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [category, setCategory] = useState("")
     const [quantity, setQuantity] = useState("")
     const navigate = useNavigate();
 
     const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
+    console.log(currentUser);
 
     const queryClient = useQueryClient();
     
@@ -32,8 +32,11 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
     // Set default values for email and category if they're available
     useEffect(() => {
       if (currentUser) {
-          setEmail(currentUser?.email);
+          setName(currentUser?.name);
       }
+      if (currentUser) {
+        setEmail(currentUser?.email);
+    }
       if (supply && supply?.data) {
           setCategory(supply?.data?.category || "");
           // setQuantity(supply?.data?.quantity || "");
@@ -45,6 +48,7 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
         e.preventDefault()
 
         const donationDetails = {
+          name,
           email,
           category,
           quantity:parseInt(quantity),
@@ -73,6 +77,18 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
             </DialogHeader>
             <form onSubmit={handleSubmit}>
                 <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                        Name
+                    </Label>
+                    <Input onBlur={(e) => setName(e.target.value)}
+                      id="name"
+                      value={name}
+                      className="col-span-3"
+                      placeholder="Please Login"
+                      required
+                    />
+                  </div>
                   <div className="grid grid-cols-4 items-center gap-4">
                     <Label htmlFor="email" className="text-right">
                         Email

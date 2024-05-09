@@ -43,7 +43,7 @@ const Navbar = () => {
 
 
   return (
-    <header className="bg-slate-300 flex place-content-center py-2">
+    <header className="bg-slate-300 flex place-content-center py-2 border-2">
       <nav className="w-full h-full max-w-[1260px] px-[20px] mx-auto flex gap-1 justify-between items-center">
         <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
@@ -72,6 +72,9 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/dashboard">Dashboard</NavLink>
                   </li>
+                  <li>
+                    <NavLink to="/dashboard">D-Leaderboard</NavLink>
+                  </li>
                 </motion.ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -83,6 +86,8 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allSupplies">All Supplies</NavLink>
             {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
+            <NavLink to="/leaderboard">D-Leaderboard</NavLink>
+
           </ul>
         </motion.div>
 
