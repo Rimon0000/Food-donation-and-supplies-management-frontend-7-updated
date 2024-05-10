@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import DLeaderboard from "@/pages/leaderboard/DLeaderboard";
 import Community from "@/pages/CommunityGraWall/Community";
 import AddTestimonial from "@/pages/dashboard/AddTestimonial";
+import VolunteerHub from "@/pages/volunteer/VolunteerHub";
 
 
 const router = createBrowserRouter([
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
         {
           path: "/community",
           element: <Community></Community>
+        },
+        {
+          path: "/volunteer",
+          element: <VolunteerHub></VolunteerHub>
         },
     ]
   },

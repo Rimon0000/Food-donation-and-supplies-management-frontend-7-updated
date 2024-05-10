@@ -78,6 +78,9 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/community">Community</NavLink>
                   </li>
+                  <li>
+                    <NavLink to="/volunteer">Volunteer-Hub</NavLink>
+                  </li>
                 </motion.ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -91,6 +94,7 @@ const Navbar = () => {
             {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
             <NavLink to="/leaderboard">D-Leaderboard</NavLink>
             <NavLink to="/community">Community</NavLink>
+            <NavLink to="/volunteer">Volunteer-Hub</NavLink>
 
           </ul>
         </motion.div>
