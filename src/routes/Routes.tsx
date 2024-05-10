@@ -14,6 +14,7 @@ import AddSupply from "@/pages/dashboard/AddSupply";
 import PrivateRoute from "./PrivateRoute";
 import DLeaderboard from "@/pages/leaderboard/DLeaderboard";
 import Community from "@/pages/CommunityGraWall/Community";
+import AddTestimonial from "@/pages/dashboard/AddTestimonial";
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "create-supply",
         element: <AddSupply></AddSupply>
+      },
+      {
+        path: "create-testimonial",
+        element: <AddTestimonial></AddTestimonial>
       }
 
     ]

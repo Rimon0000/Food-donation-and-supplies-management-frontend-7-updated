@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <aside className="bg-slate-800 col-span-2 h-screen">
+    <aside className="bg-slate-800 col-span-2 h-full sticky">
       <div className="text-white text-center font-bold text-xl h-12 flex items-center justify-center">
         <h1>Nogorful</h1>
       </div>
@@ -36,6 +36,20 @@ const Sidebar = () => {
         >
           <LayoutDashboard className="shrink-0"></LayoutDashboard>
           <span className="truncate">Add Supply</span>
+        </NavLink>
+        <NavLink
+          to="/dashboard/create-testimonial"
+          className={({ isActive }) =>
+            cn(
+              "p-2 bg-green-300 rounded-md transition-all flex gap-2 items-center",
+              {
+                "text-white bg-black": isActive,
+              }
+            )
+          }
+        >
+          <LayoutDashboard className="shrink-0"></LayoutDashboard>
+          <span className="truncate">Add Testimonial</span>
         </NavLink>
 
         
