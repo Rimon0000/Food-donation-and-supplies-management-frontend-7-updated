@@ -16,12 +16,14 @@ import DLeaderboard from "@/pages/leaderboard/DLeaderboard";
 import Community from "@/pages/CommunityGraWall/Community";
 import AddTestimonial from "@/pages/dashboard/AddTestimonial";
 import VolunteerHub from "@/pages/volunteer/VolunteerHub";
+import ErrorPage from "@/pages/errorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
         {
             index: true,

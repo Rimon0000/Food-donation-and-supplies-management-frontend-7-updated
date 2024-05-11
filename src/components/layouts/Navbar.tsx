@@ -62,7 +62,7 @@ const Navbar = () => {
                 <Menu></Menu>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <motion.ul className="font-semibold px-2 w-[107px]" variants={navbarAnimation}  initial="initial"  animate="animate">
+                <motion.ul className="font-semibold p-2 w-[134px]" variants={navbarAnimation}  initial="initial"  animate="animate">
                   <li>
                     <NavLink to="/">Home</NavLink>
                   </li>
