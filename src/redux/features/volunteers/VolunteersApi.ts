@@ -10,7 +10,21 @@ const volunteerApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['volunteer'],
         }),
+        GetFilteredVolunteers: builder.query({
+            query: () =>({
+                url: "/api/v1/filter-volunteers",
+                method: "GET",
+            }),
+            providesTags: ['volunteer'],
+        }),
+        GetAllVolunteers: builder.query({
+            query: () =>({
+                url: "/api/v1/volunteers",
+                method: "GET",
+            }),
+            providesTags: ['volunteer'],
+        }),
     })
 })
 
-export const {useAddVolunteerMutation } = volunteerApi;
+export const {useAddVolunteerMutation, useGetFilteredVolunteersQuery, useGetAllVolunteersQuery } = volunteerApi;

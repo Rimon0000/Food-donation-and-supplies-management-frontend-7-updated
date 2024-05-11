@@ -62,7 +62,7 @@ const VolunteerHub = () => {
             <div className="sm:col-span-6 md:col-span-6 lg:col-span-7 text-justify">
                     <h1 className="text-5xl text-purple-900 font-bold border-b-4 pb-4 max-w-[520px]">We are Team Nogorful</h1>
                     <p className="font-semibold text-lg my-5">A crazy group of people to inspire a nation</p>
-                    <p>
+                    <p className="font-medium text-sm">
                     A passionate group of people who wishes to inspire a nation and beyond. 
                     Nogorful is an educational voluntary organization that originated from Chattagram,Bangladesh. 
                     Nogorful has been operated by 40 professionals and with help of thousands of volunteers. 
@@ -76,10 +76,10 @@ const VolunteerHub = () => {
                     children and orphans, anyone with an underprivileged background is welcome at our door. 
                     </p>
                     <h1 className="text-5xl text-purple-900 font-bold border-b-4 pb-4 my-5 max-w-[390px]">Vision & Mission</h1>
-                    <p><span className="font-bold">Vision:</span> Our vision is to spread humanity, kindness and bring social justice. We believe that good brings only more good and everyone deserves to live in a peaceful environment.</p>
-                    <p className="mt-5"><span className="font-bold">Mission:</span> Our mission is to provide education, nourishment, mental and physical support to the distressed and to make people self sufficient by permanently rehabilitating them.</p>
+                    <p className="font-medium text-sm"><span className="font-bold">Vision:</span> Our vision is to spread humanity, kindness and bring social justice. We believe that good brings only more good and everyone deserves to live in a peaceful environment.</p>
+                    <p className="font-medium text-sm mt-5"><span className="font-bold">Mission:</span> Our mission is to provide education, nourishment, mental and physical support to the distressed and to make people self sufficient by permanently rehabilitating them.</p>
                     <h1 className="text-5xl text-purple-900 font-bold border-b-4 pb-4 my-5 max-w-[370px]">Where we work</h1>
-                    <p>Nogorful initially started as an organization serving the poor communities by making learning fun and engaging. Later by crowdfunding and by massive support from the citizens of Bangladesh and International well wishers and donors we have grown into one of the biggest charities in Bangladesh. We have 8 schools,  We also recently launched the CMP-Nogorful Field Hospital dedicated to provide quality treatment, free of cost for the CoronaVirus treatment of distressed citizens. Another new hospital is also in the making to serve the underprivileged. Some of our localised projects are flood relief, educational assistance, free eatery, religious festivals celebrations for the poor, job training etc.</p>  
+                    <p className="font-medium text-sm">Nogorful initially started as an organization serving the poor communities by making learning fun and engaging. Later by crowdfunding and by massive support from the citizens of Bangladesh and International well wishers and donors we have grown into one of the biggest charities in Bangladesh. We have 8 schools,  We also recently launched the CMP-Nogorful Field Hospital dedicated to provide quality treatment, free of cost for the CoronaVirus treatment of distressed citizens. Another new hospital is also in the making to serve the underprivileged. Some of our localised projects are flood relief, educational assistance, free eatery, religious festivals celebrations for the poor, job training etc.</p>  
                 </div>
 
                 <div className="sm:col-span-6 md:col-span-6 lg:col-span-5">
