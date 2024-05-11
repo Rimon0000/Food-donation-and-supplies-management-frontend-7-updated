@@ -5,6 +5,14 @@ import {  useGetAllVolunteersQuery, useGetFilteredVolunteersQuery } from "@/redu
 import { Instagram, Linkedin, LucideFacebook, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { useState } from "react";
 
+type TVolunteerData = {
+  image: string;
+  name: string;
+  location: string;
+  phone: string;
+  email: string;
+}
+
 const AboutUs = () => {
   const [showAllVolunteers, setShowAllVolunteers] = useState(false);
   const {data: filteredVolunteersData} = useGetFilteredVolunteersQuery(undefined)
@@ -53,7 +61,7 @@ const AboutUs = () => {
       <h1 className="text-center text-6xl font-bold my-10">Our Volunteers</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-10">
         {
-          volunteersData?.data?.map((item) => (
+          volunteersData?.data?.map((item : TVolunteerData) => (
             <Card className="grid grid-cols-2 gap-8 p-3">
               <div>
                 <img className="w-full h-full rounded-lg" src={item.image} alt="" />

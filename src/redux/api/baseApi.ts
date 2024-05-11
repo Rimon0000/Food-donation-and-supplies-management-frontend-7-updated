@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery(
-    { baseUrl: 'http://localhost:5000',
+    { baseUrl: 'https://l2-b2-frontend-path-assignment-7-server-kappa.vercel.app',
     // credentials: "include",
 })
 

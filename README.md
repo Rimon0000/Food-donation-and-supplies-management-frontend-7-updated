@@ -1,6 +1,11 @@
-# React + TypeScript + Vite  
+# React + TypeScript + Vite 
 
-- This is a Food Donation and Supply Management Based website.
+- This is a Food Donation and Supply Management Based website.  
+
+## Installation:
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the server using `npm run dev`.  
 
 ### FEATURES  
 #### In Landing Page:  
@@ -27,4 +32,4 @@
 - express js, mongodb, dotenv, cors etc.
 
 ###  
-- Project Live Link  -> [https://food-distribution-and-supply.web.app/]()  
+- Project Live Link  -> [https://food-distribution-and-supply-7.web.app/]()  
