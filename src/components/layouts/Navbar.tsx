@@ -55,7 +55,7 @@ const Navbar = () => {
           </Link>
           <a className="font-bold text-xl">Nogorful</a>
         </motion.div>
-        <NavigationMenu className="lg:hidden md:hidden">
+        <NavigationMenu className="lg:hidden ">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>
@@ -81,13 +81,16 @@ const Navbar = () => {
                   <li>
                     <NavLink to="/volunteer">Volunteer-Hub</NavLink>
                   </li>
+                  <li>
+                    <NavLink to="/about-us">About Us</NavLink>
+                  </li>
                 </motion.ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
-        <motion.div className="hidden lg:block md:block" variants={navbarAnimation}  initial="initial"  animate="animate">
+        <motion.div className="hidden lg:block " variants={navbarAnimation}  initial="initial"  animate="animate">
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allSupplies">All Supplies</NavLink>
@@ -95,7 +98,7 @@ const Navbar = () => {
             <NavLink to="/leaderboard">D-Leaderboard</NavLink>
             <NavLink to="/community">Community</NavLink>
             <NavLink to="/volunteer">Volunteer-Hub</NavLink>
-
+            <NavLink to="/about-us">About Us</NavLink>
           </ul>
         </motion.div>
 

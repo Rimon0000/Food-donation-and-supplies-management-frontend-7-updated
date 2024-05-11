@@ -17,6 +17,7 @@ import Community from "@/pages/CommunityGraWall/Community";
 import AddTestimonial from "@/pages/dashboard/AddTestimonial";
 import VolunteerHub from "@/pages/volunteer/VolunteerHub";
 import ErrorPage from "@/pages/errorPage/ErrorPage";
+import AboutUs from "@/pages/aboutUs/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         {
           path: "/volunteer",
           element: <VolunteerHub></VolunteerHub>
+        },
+        {
+          path: "/about-us",
+          element: <AboutUs></AboutUs>
         },
     ]
   },
