@@ -6,7 +6,7 @@ import router from './routes/Routes.tsx'
 import { Provider } from 'react-redux'
 import { store } from './redux/store.ts'
 import { Toaster } from 'sonner'
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from './components/provider/ThemeProvider.tsx'
 
 const queryClient = new QueryClient();
