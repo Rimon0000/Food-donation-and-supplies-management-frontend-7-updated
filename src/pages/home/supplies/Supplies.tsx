@@ -10,8 +10,8 @@ const Supplies = () => {
   // console.log(data?.data);
 
   return (
-    <Container className="my-20 px-10">
-      <h1 className="text-6xl text-center font-bold my-2">Our Supplies</h1>
+    <Container className="my-16 px-10">
+      <h1 className="text-5xl text-center font-bold my-2">Our Supplies</h1>
       <p className="text-center font-semibold text-slate-600">
         This are some of Our Recent Activities
       </p>

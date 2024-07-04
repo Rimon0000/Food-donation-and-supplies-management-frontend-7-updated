@@ -41,8 +41,8 @@ const Navbar = () => {
   }
 
   return (
-    <header className="bg-slate-300 flex place-content-center py-2 border-b-2">
-      <nav className="w-full h-full max-w-[90%] px-[20px] mx-auto flex gap-1 justify-between items-center">
+    <header className="bg-gray-800 text-white mx-auto py-2 fixed top-0 left-0 right-0 z-10">
+      <nav className="h-full max-w-[90%] px-[20px] mx-auto flex gap-1 justify-between items-center">
         <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
             <img
@@ -57,7 +57,7 @@ const Navbar = () => {
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <Menu></Menu>
+                <Menu className="text-black"></Menu>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <motion.ul className="font-semibold p-2 w-[134px]" variants={navbarAnimation}  initial="initial"  animate="animate">
@@ -65,7 +65,7 @@ const Navbar = () => {
                     <NavLink to="/">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/allSupplies">All Supplies</NavLink>
+                    <NavLink to="/allSupplies">Supplies</NavLink>
                   </li>
                   <li>
                     <NavLink to="/dashboard">Dashboard</NavLink>
@@ -77,10 +77,10 @@ const Navbar = () => {
                     <NavLink to="/community">Community</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/volunteer">Volunteer-Hub</NavLink>
+                    <NavLink to="/volunteer">Vol-Hub</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/about-us">About Us</NavLink>
+                    <NavLink to="/about-us">About</NavLink>
                   </li>
                 </motion.ul>
               </NavigationMenuContent>
@@ -91,12 +91,12 @@ const Navbar = () => {
         <motion.div className="hidden lg:block " variants={navbarAnimation}  initial="initial"  animate="animate">
           <ul className="flex gap-3 font-semibold">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/allSupplies">All Supplies</NavLink>
+            <NavLink to="/allSupplies">Supplies</NavLink>
             {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
             <NavLink to="/leaderboard">D-Leaderboard</NavLink>
             <NavLink to="/community">Community</NavLink>
-            <NavLink to="/volunteer">Volunteer-Hub</NavLink>
-            <NavLink to="/about-us">About Us</NavLink>
+            <NavLink to="/volunteer">Vol-Hub</NavLink>
+            <NavLink to="/about-us">About</NavLink>
           </ul>
         </motion.div>
 
@@ -109,7 +109,7 @@ const Navbar = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="">
-                <Sun className="rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                <Sun className="rotate-0 text-black scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <Moon className="absolute  rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
               </Button>

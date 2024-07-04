@@ -6,8 +6,9 @@ import 'react-awesome-slider/dist/styles.css';
 const HeroSection = () => {
 
     return (
-        <Container className="my-5">
-            <AwesomeSlider className="carousel h-[500px]">
+       <div className=" bg-gray-800 py-28">
+        <Container>
+            <AwesomeSlider className="carousel h-[550px]">
                <div className="carousel-item relative w-full">
                  <img className="w-full rounded-xl" src="https://i.ibb.co/0V3Mtxt/img1.jpg" />
                  <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
@@ -21,7 +22,7 @@ const HeroSection = () => {
                 </div>
                </div> 
                
-               {/* <div className="carousel-item relative w-full">
+               <div className="carousel-item relative w-full">
                  <img className="w-full rounded-xl" src="https://i.ibb.co/JQwBw7h/img2.jpg"/>
                  <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                   <div className="text-white space-y-8 lg:p-20 p-2 lg:w-4/5">
@@ -46,18 +47,6 @@ const HeroSection = () => {
                 </div>
                </div> 
                <div className="carousel-item relative w-full">
-                 <img className="w-full rounded-xl" src="https://i.ibb.co/4d1zVD0/img5.jpg"/>
-                 <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                  <div className="text-white space-y-8 lg:p-20 p-2 lg:w-4/5">
-                  <h2 className="text-5xl font-bold">We make a living by what we get, but we make a life by what we give.</h2>
-                  <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>
-                  <div>
-                  <Button className="uppercase btn btn-primary ">Donate Now</Button>
-                  </div>
-                  </div>
-                </div>
-               </div>
-               <div className="carousel-item relative w-full">
                  <img className="w-full rounded-xl" src="https://i.ibb.co/GvcJk5C/img6.jpg"/>
                  <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                   <div className="text-white space-y-8 lg:p-20 p-2 lg:w-4/5">
@@ -68,21 +57,10 @@ const HeroSection = () => {
                   </div>
                   </div>
                 </div>
-               </div>
-               <div className="carousel-item relative w-full">
-                 <img className="w-full rounded-xl" src="https://i.ibb.co/KW0j6s1/img7.jpg" />
-                 <div className="absolute rounded-xl h-full flex items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                  <div className="text-white space-y-8 lg:p-20 p-2 lg:w-4/5">
-                  <h2 className="text-5xl font-bold">We rise by lifting others.</h2>
-                  <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>
-                  <div>
-                  <Button className="uppercase btn btn-primary ">Donate Now</Button>
-                  </div>
-                  </div>
-                </div>
-               </div>  */}
+               </div> 
             </AwesomeSlider> 
         </Container>
+       </div> 
     );
 };
 
