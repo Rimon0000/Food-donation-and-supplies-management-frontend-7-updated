@@ -13,7 +13,7 @@ const DLeaderboard = () => {
     const {data: donationsData} = useGetAllDonationsQuery(undefined)
 
     return (
-        <Container className="my-10">
+        <Container className="my-20">
             <h1 className="text-5xl text-center font-bold mb-10">Donors Leaderboard</h1>
             <Table className="w-[50%] mx-auto shadow-2xl rounded-lg text-lg">
               <TableCaption>A list of our Donor's leaderboard based on their donations.</TableCaption>

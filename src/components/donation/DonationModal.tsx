@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { useCurrentUser } from "@/redux/features/auth/authSlice"
 import { useAddDonationMutation } from "@/redux/features/donation/donationApi"
 import { useAppSelector } from "@/redux/hook"
 import { DialogClose } from "@radix-ui/react-dialog"
-import { FormEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 import { useQueryClient } from 'react-query';
@@ -16,42 +18,38 @@ import { TUserData } from "@/pages/dashboard/Dashboard"
 
 
 const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
     const [category, setCategory] = useState("")
-    const [quantity, setQuantity] = useState("")
     const navigate = useNavigate();
 
     const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
-    console.log(currentUser);
-
+    // console.log(currentUser);
     const queryClient = useQueryClient();
-    
     const [addDonation] = useAddDonationMutation()
 
     // Set default values for email and category if they're available
     useEffect(() => {
-      if (currentUser) {
-          setName(currentUser?.name);
-      }
-      if (currentUser) {
-        setEmail(currentUser?.email);
-    }
       if (supply && supply?.data) {
           setCategory(supply?.data?.category || "");
-          // setQuantity(supply?.data?.quantity || "");
       }
   }, [currentUser, supply]);
 
     //Handle Submit
-    const handleSubmit = (e: FormEvent) =>{
+    const handleSubmit = (e: any) =>{
         e.preventDefault()
 
+        const form = e.target;
+        const amount = form.amount.value;
+        const category = form.category.value;
+        const name = form.name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+
         const donationDetails = {
+          amount:parseInt(amount),
+          category,
           name,
           email,
-          category,
-          quantity:parseInt(quantity),
+          message
         }
 
         // for server state 
@@ -65,7 +63,6 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
     return (
         <Dialog>
           <DialogTrigger asChild>
-            {/* <Button className="bg-primary-gradient">Add Todo</Button> */}
             <Button className="mt-8">Donate Now</Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
@@ -77,27 +74,15 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
             </DialogHeader>
             <form onSubmit={handleSubmit}>
                 <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-right">
-                        Name
+
+                <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="amount" className="text-right">
+                        Amount
                     </Label>
-                    <Input onBlur={(e) => setName(e.target.value)}
-                      id="name"
-                      value={name}
+                    <Input type="number"
+                      name="amount"
                       className="col-span-3"
-                      placeholder="Please Login"
-                      required
-                    />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="email" className="text-right">
-                        Email
-                    </Label>
-                    <Input onBlur={(e) => setEmail(e.target.value)}
-                      id="email"
-                      value={email}
-                      className="col-span-3"
-                      placeholder="Please Login"
+                      placeholder="BDT-(TK)"
                       required
                     />
                   </div>
@@ -106,24 +91,49 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
                       Category
                     </Label>
                     <Input onBlur={(e) => setCategory(e.target.value)}
-                      id="category"
+                      name="category"
+                      type="text"
                       value={category}
                       className="col-span-3"
+                      placeholder="Category"
+                      required
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="name" className="text-right">
+                        Name
+                    </Label>
+                    <Input
+                    type="text"
+                      name="name"
+                      className="col-span-3"
+                      placeholder="Name"
                       required
                     />
                   </div>
                   <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="quantity" className="text-right">
-                        Quantity
+                    <Label htmlFor="email" className="text-right">
+                        Email
                     </Label>
-                    <Input type="number" onBlur={(e) => setQuantity(e.target.value)}
-                      id="quantity"
-                      // value={quantity}
+                    <Input
+                      name="email"
+                      type="email"
                       className="col-span-3"
+                      placeholder="Email"
                       required
                     />
                   </div>
-              
+                  
+                  <div className="grid grid-cols-4 items-center gap-4">
+                    <Label htmlFor="message" className="text-right">
+                        Message
+                    </Label>
+                    <Textarea className="col-span-3 p-2 border rounded "
+                          name="message"
+                          placeholder="Write Your Message"
+                          required/>
+                  </div>
                 </div>
                 <div className="flex justify-end">
                     <DialogClose asChild>

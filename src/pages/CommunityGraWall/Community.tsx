@@ -65,11 +65,11 @@ const Community = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12">
                 <div className="sm:col-span-6 md:col-span-5 lg:col-span-4">
-                    <form onSubmit={handleAddComment} className="bg-slate-100 shadow-md rounded px-6 pt-6 w-full">
-                        <h1 className="text-center text-sm text-slate-600">Share your thoughts about our platform! </h1>
+                    <form onSubmit={handleAddComment} className="border shadow-2xl rounded px-6 pt-6 w-full">
+                        <h1 className="text-center text-sm text-slate-500">Share your thoughts about our platform! </h1>
                     <div className="mb-2">
                         <Label htmlFor="Name" className="flex text-left py-2 text-base">Name</Label>
-                        <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                        <input className="shadow  border rounded w-full py-2 px-3 "
                           name="name"
                           type="text"
                           placeholder="Name"
@@ -78,7 +78,7 @@ const Community = () => {
                     </div>
                     <div className="mb-2">
                         <Label htmlFor="Comment" className="flex text-left py-2 text-base">Comment</Label>
-                        <textarea className="shadow  border rounded w-full py-2 px-3 text-gray-700 h-[120px]"
+                        <textarea className="shadow  border rounded w-full py-2 px-3 h-[120px]"
                           name="comment"
                           placeholder="Write Your Comment"
                           required/>

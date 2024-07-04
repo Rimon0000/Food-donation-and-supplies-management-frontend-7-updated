@@ -79,15 +79,15 @@ const VolunteerHub = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12 px-10">
             <div className="sm:col-span-6 md:col-span-6 lg:col-span-6 text-justify">
-                <img className="rounded-lg mt-20" src="https://i.ibb.co/58bw9jD/dakota-corbin-xh4m-G4cq-HGg-unsplash.jpg" alt="" />
+                <img className="rounded-lg lg:mt-32" src="https://i.ibb.co/58bw9jD/dakota-corbin-xh4m-G4cq-HGg-unsplash.jpg" alt="" />
             </div>
             <div className="sm:col-span-6 md:col-span-6 lg:col-span-6">
-                <h1 className="text-5xl font-bold">Join Us</h1>
+                <h1 className="text-4xl font-bold">Join Us -</h1>
                 <p className="font-semibold mb-6 mt-3">Let's help ourselves and make happiness. We will be proud to have you as a volunteer.</p>
-                <form onSubmit={handleAddVolunteer} className="bg-slate-100 shadow-md rounded px-6 pt-6 w-full">
-                    <h1 className="text-center font-semibold text-slate-600">Sign Up with </h1>
+                <form onSubmit={handleAddVolunteer} className=" shadow-2xl border rounded px-6 pt-6 w-full">
+                    <h1 className="text-center font-semibold text-slate-500">Sign Up with </h1>
                 <div className="mb-2">
                     <Label htmlFor="Image" className="flex text-left py-2 text-base">Image</Label>
                     <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"

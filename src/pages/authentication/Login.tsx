@@ -28,14 +28,12 @@ const Login = () => {
 
   const onSubmit : SubmitHandler<TLoginFormData> = async (data) => {
     const toastId = toast.loading("logging in");
-
     try {
       const loginInfo = {
         email: data.email,
         password: data.password,
       };
-
-
+      
       const res = await login(loginInfo).unwrap()
       const token = verifyToken(res.token);
       dispatch(setUser({user: loginInfo, token: token}))
