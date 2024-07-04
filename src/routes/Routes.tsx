@@ -18,6 +18,11 @@ import AddTestimonial from "@/pages/dashboard/AddTestimonial";
 import VolunteerHub from "@/pages/volunteer/VolunteerHub";
 import ErrorPage from "@/pages/errorPage/ErrorPage";
 import AboutUs from "@/pages/aboutUs/AboutUs";
+import AdminRoute from "./AdminRoute";
+import ManageUsers from "@/pages/dashboard/ManageUsers";
+import AdminDashboard from "@/pages/dashboard/admin/AdminDashboard";
+import DashboardSwitch from "@/pages/dashboard/DashboardSwitch";
+import TopBar from "@/components/layouts/Topbar";
 
 
 const router = createBrowserRouter([
@@ -70,7 +75,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+        element: <PrivateRoute><DashboardSwitch></DashboardSwitch></PrivateRoute>
       },
       {
         path: "supplies",
@@ -83,7 +88,11 @@ const router = createBrowserRouter([
       {
         path: "create-testimonial",
         element: <AddTestimonial></AddTestimonial>
-      }
+      },
+      {
+        path: "manage-users",
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
 
     ]
   }

@@ -40,11 +40,9 @@ const Navbar = () => {
     dispatch(logout())
   }
 
-
-
   return (
-    <header className="bg-slate-300 flex place-content-center py-2 border-2">
-      <nav className="w-full h-full max-w-[1260px] px-[20px] mx-auto flex gap-1 justify-between items-center">
+    <header className="bg-slate-300 flex place-content-center py-2 border-b-2">
+      <nav className="w-full h-full max-w-[90%] px-[20px] mx-auto flex gap-1 justify-between items-center">
         <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
             <img

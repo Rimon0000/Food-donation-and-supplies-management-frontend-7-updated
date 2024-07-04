@@ -15,11 +15,11 @@ export type TUserData = {
 }
 
 
-const Dashboard = ()=>{
+const AdminDashboard = ()=>{
   const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
   const { data } = useGetDonationByEmailQuery(currentUser?.email);
 
-  if(!currentUser){
+  if(!data){
     return <div>loading.........</div>
   }
 
@@ -30,7 +30,7 @@ const Dashboard = ()=>{
     
     return (
       <div>
-        <h1 className='font-bold text-2xl'>Welcome, This is your supply statistics!</h1>
+        <h1 className='font-bold text-2xl'>Welcome Back Admin!</h1>
         <div>
           <ResponsiveContainer width="100%" height={400} className="h-screen">
               <PieChart width={400} height={400}>
@@ -54,4 +54,4 @@ const Dashboard = ()=>{
     )
 }
 
-export default Dashboard;
+export default AdminDashboard;

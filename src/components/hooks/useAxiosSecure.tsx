@@ -1,48 +1,51 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
-import axios, { InternalAxiosRequestConfig, AxiosResponse, AxiosError, AxiosHeaders } from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@/redux/hook';
-import { logout, useCurrentUserToken } from '@/redux/features/auth/authSlice';
+import { logout, useCurrentUser } from '@/redux/features/auth/authSlice';
 
-// Create an Axios instance with a base URL
 const axiosSecure = axios.create({
-  baseURL: 'https://l2-b2-frontend-path-assignment-7-server-kappa.vercel.app',
+  baseURL: 'http://localhost:5000',
 });
 
 const useAxiosSecure = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const currentUserToken = useAppSelector(useCurrentUserToken);
+  const currentUser = useAppSelector(useCurrentUser);
 
   useEffect(() => {
-    // Add a request interceptor to inject the authorization header
-    axiosSecure.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-      if (currentUserToken) {
-        if (!config.headers) {
-          config.headers = new AxiosHeaders();
-        }
-        config.headers.set('Authorization', `Bearer ${currentUserToken}`);
+    const setToken = async () => {
+      if (currentUser) {
+        const { data } = await axios.post('http://localhost:5000/jwt', {
+          email: currentUser.email
+        });
+        localStorage.setItem('access-token', data.token);
+      } else {
+        localStorage.removeItem('access-token');
+      }
+    };
+
+    setToken();
+
+    axiosSecure.interceptors.request.use((config) => {
+      const token = localStorage.getItem('access-token');
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
       return config;
     });
 
-    // Add a response interceptor to handle unauthorized responses (401 or 403)
     axiosSecure.interceptors.response.use(
-      (response: AxiosResponse) => response,
-      async (error: AxiosError) => {
+      (response) => response,
+      async (error) => {
         if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-          // Call logout asynchronously to clear user data
           dispatch(logout());
-          // Redirect the user to the login page
           navigate('/login');
         }
         return Promise.reject(error);
       }
     );
-
-  }, [navigate, dispatch, currentUserToken]);
+  }, [navigate, dispatch, currentUser]);
 
   return [axiosSecure];
 };

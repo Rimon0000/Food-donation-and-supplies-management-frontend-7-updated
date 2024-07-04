@@ -1,21 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "./useAxiosSecure";
-import { useAppSelector } from "@/redux/hook";
-import { useCurrentUser, useCurrentUserToken } from "@/redux/features/auth/authSlice";
-import { TUser, TUserToken } from "@/redux/features/auth/authSlice"; // Ensure these are exported from your slice
+import { useQuery } from 'react-query';
+import useAxiosSecure from './useAxiosSecure';
+import { useAppSelector } from '@/redux/hook';
+import { useCurrentUser } from '@/redux/features/auth/authSlice';
 
 const useAdmin = () => {
-  const currentUser = useAppSelector(useCurrentUser) as TUser | null;
-  const currentUserToken = useAppSelector(useCurrentUserToken) as TUserToken | null;
+  const currentUser = useAppSelector(useCurrentUser);
   const [axiosSecure] = useAxiosSecure();
 
-  // Use axios secure with react query
   const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
-    queryKey: ["isAdmin", currentUser?.email],
-    enabled: !!currentUser?.email && !!currentUserToken,
+    queryKey: ['isAdmin', currentUser?.email],
+    enabled: !!currentUser?.email && !!localStorage.getItem('access-token'),
     queryFn: async () => {
-      if (!currentUser?.email) throw new Error("User email is not defined");
-      const res = await axiosSecure.get(`/users/admin/${currentUser.email}`);
+      const res = await axiosSecure.get(`/users/admin/${currentUser?.email}`);
       return res.data.admin;
     },
   });

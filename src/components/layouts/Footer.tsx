@@ -1,9 +1,12 @@
+import { Button } from "../ui/button";
+import { Input } from "../ui/input";
+
 const Footer = () =>{
     return (
-        <div className="mt-20 max-w-[1440px] mx-auto bg-[#02033B] py-[96px] px-1">
-            <div className="max-w-[1056px] mx-auto">
-                <div className="max-w-[1056px] lg:flex md:flex justify-between gap-5">
-                    <div className="text-[#FFFFFF] max-w-[312px]">
+        <div className="mt-20 bg-[#02033B] py-10">
+            <div className="max-w-[90%] mx-auto">
+                <div className=" lg:flex md:flex justify-between gap-5">
+                    <div className="lg:max-w-[33%] text-[#FFFFFF]">
                         <h1 className="text-[23px] font-extrabold">Scan. Detect. Remove.</h1>
                         <div className="my-10 flex gap-10">
                             <img src="https://i.ibb.co/TBVYF0j/svg.png" alt="" />
@@ -19,7 +22,7 @@ const Footer = () =>{
                             <p>Designed & developed by <span className="underline">Rimon Ron</span></p>
                         </div>
                     </div>
-                    <div className="w-[188px]">
+                    <div className="lg:max-w-[33%]">
                         <h1 className="text-[35px] font-extrabold text-[#FFFFFF] border-b border-b[] pb-5">Nogorful.</h1>
                         <div className="mt-10 flex flex-col gap-6">
                             <div className="flex gap-5 items-center text-[#FFC247]">
@@ -56,24 +59,17 @@ const Footer = () =>{
                         </div>
     
                     </div>
-                    <div className="max-w-[436px]">
-                        <div className="bg-[#FFC247] max-w-[436px] rounded-[42px] p-[30px] border">
+                    <div className="lg:max-w-[33%] mt-10">
+                        <div className="bg-blue-500 rounded-[30px] p-[30px] border">
                             <h1 className="text-[#02033B] text-2xl font-extrabold">Sign up to our newsletter</h1>
                             <p className="text-[#02033B] text-[15px] my-5">Receive the latest mobile security news, exclusive discounts & offers straight to your inbox!</p>
-                            <div className="join rounded-full">
-                              <input className="input  join-item" placeholder="Email address"/>
-                              <button className="btn bg-[#02033B] text-[15px] font-extrabold text-center text-[#FFFFFF] rounded-r-full">Submit</button>
+                            <div className="flex w-full max-w-sm items-center space-x-2">
+                              <Input type="email" placeholder="Email Address" />
+                              <Button className="bg-primary" type="submit">Submit</Button>
                             </div>
     
                         </div>
                     </div>
-                </div>
-                <div>
-                    <p className="text-[#FFFFFF] text-xs mt-[74px] max-w-[74ch]">Apple, the Apple logo, and iPhone are trademarks of Apple Inc., 
-                        registered in the U.S. and other countries. App Store is a service 
-                        mark of Apple Inc. Android, Google Play and the Google Play 
-                        logo are trademarks of Google LLC. 
-                    </p>
                 </div>
             </div>
 
