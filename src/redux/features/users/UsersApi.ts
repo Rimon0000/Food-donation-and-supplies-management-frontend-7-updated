@@ -24,7 +24,15 @@ const volunteerApi = baseApi.injectEndpoints({
             }),
             invalidatesTags: ['user'],
         }),
+        updateUser: builder.mutation({
+            query: (options) =>({
+                url: `/api/v1/user/${options?.id}`,
+                method: "PUT",
+                body: options.data,
+            }),
+            invalidatesTags: ['user'],
+        }),
     })
 })
 
-export const {useGetAllUsersQuery, useGetSingleUsersQuery, useMakeAdminMutation } = volunteerApi;
+export const {useGetAllUsersQuery, useGetSingleUsersQuery, useMakeAdminMutation, useUpdateUserMutation } = volunteerApi;

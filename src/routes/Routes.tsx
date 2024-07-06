@@ -23,6 +23,7 @@ import ManageUsers from "@/pages/dashboard/ManageUsers";
 import AdminDashboard from "@/pages/dashboard/admin/AdminDashboard";
 import DashboardSwitch from "@/pages/dashboard/DashboardSwitch";
 import TopBar from "@/components/layouts/Topbar";
+import UserProfile from "@/pages/dashboard/Userprofile/UserProfile";
 
 
 const router = createBrowserRouter([
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "manage-users",
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
+      {
+        path: "user-profile",
+        element: <UserProfile/>
       },
 
     ]

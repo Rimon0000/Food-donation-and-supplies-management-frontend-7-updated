@@ -3,13 +3,6 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menubar"
 import { Award, BadgeCheck, BellRing, CircleUserRound, LogOut, Moon, Sun } from "lucide-react";
@@ -19,6 +12,7 @@ import { useTheme } from "../provider/ThemeProvider";
 import { useAppSelector } from "@/redux/hook";
 import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { Input } from "../ui/input";
+import { Link } from "react-router-dom";
 
 
 const TopBar = () => {
@@ -109,7 +103,9 @@ const TopBar = () => {
                   <MenubarContent className="p-2">
                   <MenubarItem className="flex gap-3">
                     <CircleUserRound className="h-[25px] w-[25px]"></CircleUserRound>
-                    <p className="font-semibold">Profile</p>
+                    <Link to="/dashboard/user-profile">
+                      <p className="font-semibold">Profile</p>
+                    </Link>
                   </MenubarItem>
                   <MenubarItem className="flex gap-3 mt-2">
                     <LogOut className="h-[25px] w-[25px]"></LogOut>

@@ -45,8 +45,8 @@ const Login = () => {
   };
 
   return (
-    <Container className="my-10 flex place-content-center">
-      <div className="bg-slate-100 shadow-md rounded px-8 py-5 w-full md:w-3/5 lg:w-2/5">
+    <Container className="my-24 flex place-content-center">
+      <div className=" shadow-lg rounded px-8 py-5 w-full md:w-3/5 lg:w-2/5 border">
         <h1 className="text-3xl font-bold pb-7 text-center">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">

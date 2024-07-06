@@ -14,7 +14,7 @@ export type TUserToken = {
 }
 
 // Define the initial state type
-interface AuthState {
+type AuthState = {
   user: TUser | null;
   token: TUserToken | null;
 }
@@ -29,7 +29,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<{ user: User; token: UserToken }>) => {
+    setUser: (state, action: PayloadAction<{ user: TUser; token: TUserToken }>) => {
       const { user, token } = action.payload;
       state.user = user;
       state.token = token;
@@ -46,5 +46,5 @@ export const { setUser, logout } = authSlice.actions;
 export default authSlice.reducer;
 
 // Other code such as selectors can use the imported `RootState` type
-export const useCurrentUser = (state: RootState): User | null => state.auth.user;
-export const useCurrentUserToken = (state: RootState): UserToken | null => state.auth.token;
+export const useCurrentUser = (state: RootState): TUser | null => state.auth.user;
+export const useCurrentUserToken = (state: RootState): TUserToken | null => state.auth.token;
