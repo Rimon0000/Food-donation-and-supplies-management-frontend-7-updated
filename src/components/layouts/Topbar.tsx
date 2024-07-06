@@ -13,21 +13,29 @@ import { useAppSelector } from "@/redux/hook";
 import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { Input } from "../ui/input";
 import { Link } from "react-router-dom";
+import { useGetAllUsersQuery } from "@/redux/features/users/UsersApi";
+import { useMemo } from "react";
 
 
 const TopBar = () => {
   const { setTheme } = useTheme()
-  const currentUser = useAppSelector(useCurrentUser)
-  // console.log("current", currentUser);
+  const {data: allUser} = useGetAllUsersQuery(undefined)
+    const currentUser = useAppSelector(useCurrentUser)
+    
+
+    //filter current user
+    const singleUser = useMemo(() => {
+        return allUser?.data?.find((user: { email: string | undefined; }) => user?.email === currentUser?.email);
+    }, [allUser?.data, currentUser?.email]);
 
     return (
         <div className="lg:flex justify-between p-3">
           <div className="">
-            <h1 className="font-semibold text-2xl">Welcome Dear {currentUser?.name}</h1>
-            <p>Here’s what’s happening with your activity today.</p>
+            <h1 className="font-semibold text-xl">Welcome {singleUser?.name}</h1>
+            <p className="text-sm">Here’s what’s happening with your activity today.</p>
           </div>
 
-            <div className="flex w-full max-w-sm items-center space-x-2">
+            <div className="flex w-full max-w-sm items-center space-x-2 lg:my-1 md:my-1 my-5">
               <Input type="email" placeholder="Email" />
               <Button type="submit">Search</Button>
             </div>
@@ -93,10 +101,12 @@ const TopBar = () => {
                 <MenubarMenu>
                   <MenubarTrigger>
                     <div className="flex gap-3">
-                       <img className="h-[40px] w-[40px] rounded-full bg-slate-200" src="https://i.ibb.co/vqqBpX6/programmer.png" alt="" />
+                       {
+                        singleUser?.image? <img className="h-[40px] w-[40px] rounded-full bg-slate-200" src={singleUser?.image} alt="User Image" /> : <img className="h-[40px] w-[40px] rounded-full bg-slate-200" src="https://i.ibb.co/vqqBpX6/programmer.png" alt="User Image" />
+                       }
                        <div>
-                          <h1>Name</h1>
-                          <p>Title</p>
+                          <h1 className="font-bold">{singleUser?.name}</h1>
+                          {singleUser?.designation? <p className="text-sm">{singleUser?.designation}</p> : <p className="text-sm">Designation</p> }
                        </div>
                     </div>
                   </MenubarTrigger>

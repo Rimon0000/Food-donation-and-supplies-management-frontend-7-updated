@@ -6,6 +6,8 @@ import { useGetAllUsersQuery } from "@/redux/features/users/UsersApi";
 import UpdateProfile from "./UpdateProfile";
 import { useAppSelector } from "@/redux/hook";
 import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import UserAbout from "./UserAbout";
+import moment from "moment";
 
 export type TSingleUser = {
     _id: string,
@@ -28,13 +30,12 @@ export type TSingleUser = {
 const UserProfile = () => {
     const {data: allUser} = useGetAllUsersQuery(undefined)
     const currentUser = useAppSelector(useCurrentUser)
-    // console.log(allUser);
     
 
     //filter current user
     const singleUser = useMemo(() => {
         return allUser?.data?.find((user: { email: string | undefined; }) => user?.email === currentUser?.email);
-    }, [allUser.data, currentUser?.email]);
+    }, [allUser?.data, currentUser?.email]);
     
 
     return (
@@ -51,11 +52,11 @@ const UserProfile = () => {
                 <div className="absolute top-[70%] left-[40%]">
                     <div className="flex place-content-center">
                       <img className="z-10  p-1 max-h-[150px] max-w-[150px] rounded-full border-2 image-border-color stroke-2"
-                        src="https://i.ibb.co/qJBdkW9/four.jpg" alt=""/>
+                        src={singleUser?.image} alt=""/>
                     </div>
-                    <div className="mt-3">
-                        <h1 className="text-3xl font-semibold">Rimon Uddin</h1>
-                        <p className="text-sm pl-4">MERN Stack Developer</p>
+                    <div className="mt-3 text-center">
+                        <h1 className="text-2xl font-semibold">{singleUser?.name}</h1>
+                        <p className="mt-1">{singleUser?.designation}</p>
                     </div>
                 </div>
             </div>
@@ -66,14 +67,14 @@ const UserProfile = () => {
                             <Mail/>
                             <p>Email</p>
                         </div>
-                        <p>rimonron@gmail.com</p>
+                        <p>{singleUser?.email}</p>
                     </div>
                     <div className="lg:mt-1 md:mt-1 mt-5">
                         <div className="flex gap-3">
                             <Mail/>
                             <p>BOD</p>
                         </div>
-                        <p>02 January 1988</p>
+                        <p>{moment(new Date(`${singleUser?.date}`)).format('DD MMMM YYYY')}</p>
                     </div>
                 </div>
                 <div className="lg:flex gap-8 lg:mt-1 md:mt-1 mt-5">
@@ -82,24 +83,24 @@ const UserProfile = () => {
                             <Contact />
                             <p>Contact Us</p>
                         </div>
-                        <p>+880 1306-260912</p>
+                        <p>{singleUser?.contact}</p>
                     </div>
                     <div className="lg:mt-1 md:mt-1 mt-5">
                         <div className="flex gap-3">
                             <Navigation />
                             <p>Location</p>
                         </div>
-                        <p>Jamalkhan, CTG</p>
+                        <p>{singleUser?.address}</p>
                     </div>
                 </div>
             </div>
             <hr />
 
-            <div className="flex justify-between my-10 gap-10">
-                <div>
-                    <h1>rimon</h1>
+            <div className="lg:flex md:flex justify-between my-10 gap-10">
+                <div className="lg:w-[50%] md:w-[50%] lg:mb-1 md:mb-1 mb-10">
+                    <UserAbout singleUser = {singleUser}/>
                 </div>
-                <div className="w-[50%]">
+                <div className="lg:w-[50%] md:w-[50%]">
                     <UpdateProfile singleUser = {singleUser}/>
                 </div>               
             </div>

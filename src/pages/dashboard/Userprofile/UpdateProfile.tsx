@@ -9,17 +9,17 @@ import { cn } from "@/lib/utils"
 import { Calendar } from "@/components/ui/calendar"
 import { toast } from "sonner";
 import { useQueryClient } from "react-query";
-import moment from "moment";
 import React from "react";
 import { useUpdateUserMutation } from "@/redux/features/users/UsersApi";
 import { TSingleUser } from "./UserProfile";
 
 
 const UpdateProfile = ({singleUser}: {singleUser: TSingleUser}) => {
-    const {_id} = singleUser;
+    const _id = singleUser?._id;
     const [date, setDate] = React.useState<Date>()
     const [updateUser] = useUpdateUserMutation(undefined)
     const queryClient = useQueryClient();
+
 
     const handleEditProfile = (e: any) => {
         e.preventDefault();
@@ -171,7 +171,7 @@ const UpdateProfile = ({singleUser}: {singleUser: TSingleUser}) => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Bio" className="flex text-left py-2 text-base">Bio</Label>
-                    <textarea className="shadow  border rounded w-full py-2 px-3 h-[120px]"
+                    <textarea className="shadow  border rounded w-full py-2 px-3 h-[120px] text-slate-950"
                       name="bio"
                       placeholder="Write about Yourself"
                       required/>
