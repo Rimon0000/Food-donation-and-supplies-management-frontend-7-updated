@@ -8,7 +8,7 @@ type TSidebarProps = {
 
 const Sidebar: React.FC<TSidebarProps> = ({isAdmin}) => {
   return (
-    <aside className="bg-slate-800 col-span-2 h-full sticky py-5">
+    <aside className="bg-slate-900 text-slate-950 col-span-2 h-full sticky py-5">
       <nav className="flex flex-col gap-2 px-4 lg:px-5 py-1">
 
         {
