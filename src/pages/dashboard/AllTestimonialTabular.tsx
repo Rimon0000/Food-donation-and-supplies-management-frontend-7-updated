@@ -7,12 +7,24 @@ import { useAppDispatch } from "@/redux/hook";
 import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
-import { TSupplyItem } from "../home/supplies/AllSupplies";
+import { useDeleteTestimonialMutation, useGetAllTestimonialQuery } from "@/redux/features/testimonial/TestimonialsApi";
+import { removeTestimonial } from "@/redux/features/testimonial/testimonialsSlice";
+import UpdateTestimonialModal from "@/components/donation/UpdateTestimonialModal";
 
-const AllSuppliesTabular = () =>{
-  const { data } = useGetAllSuppliesQuery(undefined);
+export type TTestimonial = {
+    _id: string,
+    image: string,
+    name: string,
+    location: string,
+    message: string
+}
+
+
+
+const AllTestimonialTabular = () =>{
+  const { data } = useGetAllTestimonialQuery(undefined);
   const dispatch = useAppDispatch()
-  const [deleteSupply] = useDeleteSupplyMutation();
+  const [deleteTestimonial] = useDeleteTestimonialMutation();
 
 
   //handle delete
@@ -27,8 +39,8 @@ const AllSuppliesTabular = () =>{
       confirmButtonText: "Yes, delete it!"
     }).then( async(result) => {
       if (result.isConfirmed) {
-        await deleteSupply(id).unwrap();
-        dispatch(removeSupply(id));
+        await deleteTestimonial(id).unwrap();
+        dispatch(removeTestimonial(id));
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
@@ -40,9 +52,9 @@ const AllSuppliesTabular = () =>{
 
     return (
         <div>
-            <h1 className="text-center text-xl font-bold my-5">All Supplies</h1>
+            <h1 className="text-center text-xl font-bold my-5">All Testimonials</h1>
             <div className=" my-3 mr-5 flex items-end justify-end">
-              <Link to="/dashboard/create-supply"><Button>Add New Supply</Button></Link>
+              <Link to="/dashboard/create-testimonial"><Button>Add New Testimonial</Button></Link>
             </div>
 
             <Table>
@@ -57,25 +69,25 @@ const AllSuppliesTabular = () =>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item : TSupplyItem, index: string) => (
+                {data?.data?.map((item: TTestimonial, index: string) => (
                   <TableRow key={item._id}>
                     <TableCell>{index + 1}</TableCell>
-                    <TableCell className="font-medium">{item?.title}</TableCell>
-                    <TableCell>{item?.category}</TableCell>
-                    <TableCell>{item?.quantity}</TableCell>
+                    <TableCell><img className='rounded-full max-w-[70px] h-[70px]' src={item?.image} alt="" /></TableCell>
+                    <TableCell className="font-medium">{item?.name}</TableCell>
+                    <TableCell>{item?.location}</TableCell>
                     <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
                       <Button onClick={() => handleDelete(item?._id)} variant="destructive" className=" hover:bg-slate-700 px-2 py-2 rounded-md">
                         <Trash2/>
                       </Button>
                       <hr className="border-2 mx-2 h-7 bg-slate-800"></hr>                    
-                      <UpdateSupplyModal item={item}></UpdateSupplyModal>
+                      <UpdateTestimonialModal item={item}></UpdateTestimonialModal>
                       </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
               <TableFooter>
                 <TableRow>
-                  <TableCell colSpan={3}>Total</TableCell>
+                  <TableCell colSpan={4}>Total</TableCell>
                   <TableCell className="text-right"></TableCell>
                 </TableRow>
               </TableFooter>
@@ -86,4 +98,4 @@ const AllSuppliesTabular = () =>{
     )
 }
 
-export default AllSuppliesTabular;
+export default AllTestimonialTabular;

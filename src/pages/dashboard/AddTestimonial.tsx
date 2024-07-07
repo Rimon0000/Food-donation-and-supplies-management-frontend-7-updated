@@ -40,12 +40,12 @@ const AddTestimonial = () => {
 
   return (
     <div className="text-center my-4">
-        <h1 className="text-3xl font-semibold mb-4"> Add a New Testimonial</h1>
+        <h1 className="text-2xl font-semibold mb-4"> Add a New Testimonial</h1>
         <div className="w-full flex justify-center items-center">
-            <form onSubmit={handleAddNewTestimonial} className="bg-slate-100 shadow-md rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5">
+            <form onSubmit={handleAddNewTestimonial} className="border shadow-xl rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5">
                 <div className="mb-2">
                     <Label htmlFor="Image" className="flex text-left py-2 text-base">Image</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="image"
                       type="text"
                       placeholder="Image URL"
@@ -53,25 +53,23 @@ const AddTestimonial = () => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Name" className="flex text-left py-2 text-base">Name</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="name"
                       type="text"
                       placeholder="Name"
                       defaultValue={currentUser?.name}
                       required/>
                 </div>
-                <div className="mb-2">
+                <div className="mb-1">
                     <Label htmlFor="Message" className="flex text-left py-2 text-base">Message</Label>
-                    <textarea className="shadow  border rounded w-full py-2 px-3 text-gray-700 h-[120px]"
+                    <textarea className="shadow  border rounded w-full py-2 px-3 text-slate-950 h-[120px]"
                       name="message"
                       placeholder="Write Your Message"
                       required/>
                 </div>
-
-
                 <div className="mb-2">
                     <Label htmlFor="Location" className="flex text-left py-2 text-base">Location</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="location"
                       type="text"
                       placeholder="Location"

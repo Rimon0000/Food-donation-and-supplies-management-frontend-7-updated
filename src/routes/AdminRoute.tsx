@@ -2,6 +2,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAppSelector } from '@/redux/hook';
 import { useCurrentUser } from '@/redux/features/auth/authSlice';
 import useAdmin from '@/components/hooks/useAdmin';
+import { toast } from 'sonner';
 
 type TAdminRouteProps = {
   children: React.ReactNode;
@@ -19,6 +20,8 @@ const AdminRoute: React.FC<TAdminRouteProps> = ({ children }) => {
   if (currentUser && isAdmin) {
     return children;
   }
+
+  toast("You are not an admin and cannot access this page.");
 
   return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };

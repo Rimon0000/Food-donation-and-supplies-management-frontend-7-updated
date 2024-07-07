@@ -8,6 +8,7 @@ import AdminDashboard from '@/pages/dashboard/admin/AdminDashboard';
 const DashboardSwitch = () => {
   const currentUser = useAppSelector(useCurrentUser);
   const [isAdmin, isAdminLoading] = useAdmin();
+  console.log("isAdmin", isAdmin);
 
   if (isAdminLoading) {
     return <progress className="progress w-56"></progress>;

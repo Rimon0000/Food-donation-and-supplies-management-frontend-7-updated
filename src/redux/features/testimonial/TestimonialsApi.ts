@@ -17,7 +17,23 @@ const testimonialApi = baseApi.injectEndpoints({
             }),
             providesTags: ['testimonial'],
         }),
+        updateTestimonial: builder.mutation({
+            query: (options) =>({
+                url: `/api/v1/testimonial/${options.id}`,
+                method: "PUT",
+                body: options.data,
+            }),
+            invalidatesTags: ['testimonial'],
+        }),
+
+        deleteTestimonial: builder.mutation({
+            query: (id) =>({
+                url: `/api/v1/testimonial/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ['testimonial'],
+        }),
     })
 })
 
-export const {useAddTestimonialMutation, useGetAllTestimonialQuery } = testimonialApi;
+export const {useAddTestimonialMutation, useGetAllTestimonialQuery, useUpdateTestimonialMutation, useDeleteTestimonialMutation } = testimonialApi;

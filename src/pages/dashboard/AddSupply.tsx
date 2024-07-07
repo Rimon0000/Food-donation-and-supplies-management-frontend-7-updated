@@ -42,10 +42,10 @@ const AddSupply = () => {
     <div className="text-center my-4">
         <h1 className="text-3xl font-semibold mb-4"> Add a New Supply</h1>
         <div className="w-full flex justify-center items-center">
-            <form onSubmit={handleAddNewSupply} className="bg-slate-100 shadow-md rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5">
+            <form onSubmit={handleAddNewSupply} className="shadow-xl border rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5">
                 <div className="mb-2">
                     <Label htmlFor="Image" className="flex text-left py-2 text-base">Image</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="image"
                       type="text"
                       placeholder="Image URL"
@@ -53,7 +53,7 @@ const AddSupply = () => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Title" className="flex text-left py-2 text-base">Title</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="title"
                       type="text"
                       placeholder="Title"
@@ -62,7 +62,7 @@ const AddSupply = () => {
                 <div className="flex gap-3">
                 <div className="mb-2">
                     <Label htmlFor="Category" className="flex text-left py-2 text-base">Category</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="category"
                       type="text"
                       placeholder="Category"
@@ -70,7 +70,7 @@ const AddSupply = () => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Quantity" className="flex text-left py-2 text-base">Quantity</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="quantity"
                       type="number"
                       placeholder="Quantity"
@@ -79,7 +79,7 @@ const AddSupply = () => {
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Description" className="flex text-left py-2 text-base">Description</Label>
-                    <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
+                    <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                       name="description"
                       type="text"
                       placeholder="Description"

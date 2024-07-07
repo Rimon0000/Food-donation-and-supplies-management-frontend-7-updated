@@ -24,6 +24,9 @@ import AdminDashboard from "@/pages/dashboard/admin/AdminDashboard";
 import DashboardSwitch from "@/pages/dashboard/DashboardSwitch";
 import TopBar from "@/components/layouts/Topbar";
 import UserProfile from "@/pages/dashboard/Userprofile/UserProfile";
+import MyDonations from "@/pages/dashboard/users/MyDonations";
+import MyReviews from "@/pages/dashboard/users/MyReviews";
+import AllTestimonialTabular from "@/pages/dashboard/AllTestimonialTabular";
 
 
 const router = createBrowserRouter([
@@ -80,19 +83,31 @@ const router = createBrowserRouter([
       },
       {
         path: "supplies",
-        element: <AllSuppliesTabular></AllSuppliesTabular>
+        element: <AdminRoute><AllSuppliesTabular></AllSuppliesTabular></AdminRoute>
       },
       {
         path: "create-supply",
-        element: <AddSupply></AddSupply>
+        element: <AdminRoute><AddSupply></AddSupply></AdminRoute>
+      },
+      {
+        path: "testimonials",
+        element: <AdminRoute><AllTestimonialTabular></AllTestimonialTabular></AdminRoute>
       },
       {
         path: "create-testimonial",
-        element: <AddTestimonial></AddTestimonial>
+        element: <AdminRoute><AddTestimonial></AddTestimonial></AdminRoute>
       },
       {
         path: "manage-users",
         element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
+      },
+      {
+        path: "user-donations",
+        element: <MyDonations/>
+      },
+      {
+        path: "user-reviews",
+        element: <MyReviews/>
       },
       {
         path: "user-profile",

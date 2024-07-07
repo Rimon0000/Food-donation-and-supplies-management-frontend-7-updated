@@ -1,10 +1,9 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import useAdmin from "../hooks/useAdmin";
 import TopBar from "./Topbar";
 
 const DashboardLayout = ()=>{
-    const [isAdmin] = useAdmin();
+
     return (
         <div>
             <div className="grid grid-cols-12">
@@ -17,7 +16,7 @@ const DashboardLayout = ()=>{
             </div>
             <hr />
             <div className="grid grid-cols-12">
-                <Sidebar isAdmin={isAdmin}></Sidebar>
+                <Sidebar></Sidebar>
                 <div className="col-span-10 h-full p-5">
                 <Outlet></Outlet>
                 </div>

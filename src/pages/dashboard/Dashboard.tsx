@@ -1,13 +1,12 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useCurrentUser } from '@/redux/features/auth/authSlice';
-import { useGetAllCommentsQuery, useGetTotalCommentsByAUserQuery } from '@/redux/features/comments/commentsApi';
-import { useGetAllDonationsAmountQuery, useGetDonationByEmailQuery } from '@/redux/features/donation/donationApi';
-import { useGetAllUsersQuery } from '@/redux/features/users/UsersApi';
-import { useGetAllVolunteersQuery } from '@/redux/features/volunteers/VolunteersApi';
+import { useGetTotalCommentsByAUserQuery } from '@/redux/features/comments/commentsApi';
+import { useGetDonationByEmailQuery } from '@/redux/features/donation/donationApi';
 import { useAppSelector } from '@/redux/hook';
-import { CircleUserRound, Heart, Radar, UserRoundPlus } from 'lucide-react';
+import { CircleUserRound, Heart, Radar } from 'lucide-react';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
+import { TDonation } from './users/MyDonations';
 
 type TDonationItem = {
   category: string;
@@ -29,7 +28,6 @@ const Dashboard = ()=>{
   const currentUser = useAppSelector(useCurrentUser) as unknown as TUserData;
   const { data } = useGetDonationByEmailQuery(currentUser?.email);
   const {data: totalReviewByAUser} = useGetTotalCommentsByAUserQuery(currentUser?.email)
-  const {data: allVolunteers} = useGetAllVolunteersQuery(undefined)
 
 
   if(!currentUser){
@@ -136,7 +134,7 @@ const Dashboard = ()=>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item, index) => (
+                {data?.data?.map((item: TDonation, index: string) => (
                   <TableRow key={item?._id}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell>{item?.name}</TableCell>
