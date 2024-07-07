@@ -20,7 +20,8 @@ import { Card } from "@/components/ui/card";
 
 
 export type TUser = {
-    name: string
+    name?: string,
+    email: string
 }
 export type TCommentsData = {
     name: string;
@@ -31,7 +32,7 @@ export type TCommentsData = {
 
 const Community = () => {
     const [date, setDate] = React.useState<Date>()
-    const currentUser = useAppSelector<TUser | null>(useCurrentUser);
+    const currentUser = useAppSelector(useCurrentUser);
     const [addComment] = useAddCommentMutation()
     const queryClient = useQueryClient();
     const {data:CommentsData} = useGetAllCommentsQuery(undefined)
@@ -41,10 +42,12 @@ const Community = () => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
+        const email = form.email.value;
         const comment = form.comment.value;
     
         const newComment = {
-          name: currentUser?.name || name ,
+          name,
+          email: currentUser?.email || email ,
           comment,
           date,
         }
@@ -69,16 +72,24 @@ const Community = () => {
                         <h1 className="text-center text-sm text-slate-500">Share your thoughts about our platform! </h1>
                     <div className="mb-2">
                         <Label htmlFor="Name" className="flex text-left py-2 text-base">Name</Label>
-                        <input className="shadow  border rounded w-full py-2 px-3 "
+                        <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
                           name="name"
                           type="text"
                           placeholder="Name"
-                          defaultValue={currentUser?.name}
+                          required/>
+                    </div>
+                    <div className="mb-2">
+                        <Label htmlFor="Email" className="flex text-left py-2 text-base">Email</Label>
+                        <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
+                          name="email"
+                          type="email"
+                          placeholder="Email"
+                          defaultValue={currentUser?.email}
                           required/>
                     </div>
                     <div className="mb-2">
                         <Label htmlFor="Comment" className="flex text-left py-2 text-base">Comment</Label>
-                        <textarea className="shadow  border rounded w-full py-2 px-3 h-[120px]"
+                        <textarea className="shadow  border rounded w-full py-2 px-3 h-[120px] text-slate-950"
                           name="comment"
                           placeholder="Write Your Comment"
                           required/>

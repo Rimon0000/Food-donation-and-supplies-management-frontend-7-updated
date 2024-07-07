@@ -18,7 +18,14 @@ const commentsApi = baseApi.injectEndpoints({
             }),
             providesTags: ['comment'],
         }),
+        GetTotalCommentsByAUser: builder.query({
+            query: (email) =>({
+                url: `/api/v1/comments/${email}`,
+                method: "GET",
+            }),
+            providesTags: ['comment'],
+        }),
     })
 })
 
-export const {useAddCommentMutation, useGetAllCommentsQuery } = commentsApi;
+export const {useAddCommentMutation, useGetAllCommentsQuery, useGetTotalCommentsByAUserQuery } = commentsApi;

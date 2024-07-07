@@ -52,7 +52,7 @@ const Register = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <input
-              className="shadow  border rounded w-full py-3 px-3 text-gray-700"
+              className="shadow  border rounded w-full py-3 px-3 text-slate-950"
               type="text"
               {...register("name")}
               name="name"
@@ -62,7 +62,7 @@ const Register = () => {
           </div>
           <div className="mb-4">
             <input
-              className="shadow  border rounded w-full py-3 px-3 text-gray-700"
+              className="shadow  border rounded w-full py-3 px-3 text-slate-950"
               type="email"
               {...register("email")}
               name="email"
@@ -72,7 +72,7 @@ const Register = () => {
           </div>
           <div className="mb-5">
             <input
-              className="shadow  border rounded w-full py-3 px-3 text-gray-700"
+              className="shadow  border rounded w-full py-3 px-3 text-slate-950"
               type={showPassword ? "text" : "password"}
               {...register("password", { required: true })}
               name="password"

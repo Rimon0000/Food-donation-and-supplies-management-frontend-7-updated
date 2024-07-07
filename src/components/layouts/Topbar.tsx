@@ -9,8 +9,8 @@ import { Award, BadgeCheck, BellRing, CircleUserRound, LogOut, Moon, Sun } from 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { useTheme } from "../provider/ThemeProvider";
-import { useAppSelector } from "@/redux/hook";
-import { useCurrentUser } from "@/redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
 import { Input } from "../ui/input";
 import { Link } from "react-router-dom";
 import { useGetAllUsersQuery } from "@/redux/features/users/UsersApi";
@@ -21,12 +21,18 @@ const TopBar = () => {
   const { setTheme } = useTheme()
   const {data: allUser} = useGetAllUsersQuery(undefined)
     const currentUser = useAppSelector(useCurrentUser)
+    const dispatch = useAppDispatch()
     
 
     //filter current user
     const singleUser = useMemo(() => {
         return allUser?.data?.find((user: { email: string | undefined; }) => user?.email === currentUser?.email);
     }, [allUser?.data, currentUser?.email]);
+
+    //handle logout
+    const handleLogout = () => {
+      dispatch(logout())
+    }
 
     return (
         <div className="lg:flex justify-between p-3">
@@ -119,7 +125,7 @@ const TopBar = () => {
                   </MenubarItem>
                   <MenubarItem className="flex gap-3 mt-2">
                     <LogOut className="h-[25px] w-[25px]"></LogOut>
-                    <p className="font-semibold">Logout</p>
+                    <p onClick={handleLogout} className="font-semibold">Logout</p>
                   </MenubarItem>
                   </MenubarContent>
 

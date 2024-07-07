@@ -51,7 +51,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <input
-              className="shadow  border rounded w-full py-3 px-3 text-gray-700"
+              className="shadow  border rounded w-full py-3 px-3 text-slate-950"
               type="email"
               {...register("email")}
               name="email"
@@ -61,7 +61,7 @@ const Login = () => {
           </div>
           <div className="mb-5">
             <input
-              className="shadow  border rounded w-full py-3 px-3 text-gray-700"
+              className="shadow  border rounded w-full py-3 px-3 text-slate-950"
               type={showPassword ? "text" : "password"}
               {...register("password")}
               name="password"
