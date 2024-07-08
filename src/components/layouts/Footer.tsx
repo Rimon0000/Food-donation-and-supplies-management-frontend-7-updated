@@ -3,7 +3,7 @@ import { Input } from "../ui/input";
 
 const Footer = () =>{
     return (
-        <div className="mt-20 bg-[#02033B] py-10">
+        <div className=" bg-[#02033B] py-10">
             <div className="max-w-[90%] mx-auto">
                 <div className=" lg:flex md:flex justify-between gap-5">
                     <div className="lg:max-w-[33%] text-[#FFFFFF]">

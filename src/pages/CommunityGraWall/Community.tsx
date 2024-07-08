@@ -59,7 +59,7 @@ const Community = () => {
     }
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 mb-14">
             <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
               style={{ backgroundImage: "url('https://i.ibb.co/34hbmtq/donald-giannatti-czq-GBa-CVDOc-unsplash.jpg')" }} 
             >

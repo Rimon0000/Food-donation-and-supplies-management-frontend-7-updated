@@ -1,3 +1,4 @@
+import Contact from "./Contact";
 import DonorTestimonial from "./DonorTestimonial";
 import Gallery from "./Gallery";
 import HeroSection from "./HeroSection";
@@ -14,6 +15,7 @@ const Home = () =>{
             <Gallery></Gallery>
             <Volunteer></Volunteer>
             <UpcomingEvent></UpcomingEvent>
+            <Contact/>
         </div>
     )
 }

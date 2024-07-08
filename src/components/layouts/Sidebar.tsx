@@ -51,7 +51,7 @@ const Sidebar = () => {
                 <span className="truncate">My Reviews</span>
               </NavLink>
 
-              <h1 className="text-slate-300 mt-3">Admin</h1>
+              <h1 className="text-slate-300 font-semibold mt-3">Admin</h1>
               <NavLink
                 to="/dashboard/supplies"
                 className={({ isActive }) =>

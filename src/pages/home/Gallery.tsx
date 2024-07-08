@@ -5,7 +5,7 @@ const Gallery = () => {
 
   return (
     <Container>
-      <h1 className="text-center text-5xl font-bold my-2">Galllery</h1>
+      <h1 className="text-center text-5xl font-bold my-2">Activities</h1>
       <p className="text-center font-semibold text-slate-500">
         Some of our previous Activities snapshot!
       </p>

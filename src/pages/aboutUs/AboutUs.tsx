@@ -27,8 +27,7 @@ const AboutUs = () => {
   const volunteersData = showAllVolunteers ? allVolunteersData : filteredVolunteersData;
 
   return (
-    <Container className="my-5 px-10">
-
+    <Container className="my-5 mb-20 px-10">
        <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
         style={{ backgroundImage: "url('https://i.ibb.co/mqZZfPb/philip-strong-i-OBTE2xs-Yko-unsplash.jpg')" }} 
       >

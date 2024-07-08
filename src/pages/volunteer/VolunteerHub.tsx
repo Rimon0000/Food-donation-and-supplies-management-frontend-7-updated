@@ -50,7 +50,7 @@ const VolunteerHub = () => {
     }
 
     return (
-        <Container className="my-5">
+        <Container className="my-5 mb-20">
             <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
               style={{ backgroundImage: "url('https://i.ibb.co/b3bBYVt/nogorful-2.jpg')" }} 
             >
