@@ -1,8 +1,6 @@
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useCurrentUser } from "@/redux/features/auth/authSlice";
-import { useGetDonationByEmailQuery } from "@/redux/features/donation/donationApi";
 import { useAppSelector } from "@/redux/hook";
-import { TDonationAmount } from "../Dashboard";
 import { useGetCommentsByEmailQuery } from "@/redux/features/comments/commentsApi";
 import moment from "moment";
 

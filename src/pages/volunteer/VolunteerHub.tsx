@@ -10,7 +10,7 @@ import { useAddVolunteerMutation } from "@/redux/features/volunteers/VolunteersA
 
 
 export type TUser = {
-    name: string;
+    name?: string;
     email: string
 }
 export type TCommentsData = {

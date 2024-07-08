@@ -15,18 +15,9 @@ export type TUser = {
 const ManageUsers = () => {
   const { data: users } = useGetAllUsersQuery(undefined);
   const queryClient = useQueryClient();
-//   const [makeAdmin] = useMakeAdminMutation()
-
-//     //update supply
-//     const handleUpdate = (item: TUser) =>{
-
-//         makeAdmin(item?._id);
-//         queryClient.invalidateQueries('users');
-//         toast.success("Supply Updated!");
-//     };
 
   const handleMakeAdmin = (item: TUser) => {
-    fetch(`http://localhost:5000/users/admin/${item?._id}`, {
+    fetch(`https://assign-7-rho.vercel.app/users/admin/${item?._id}`, {
       method: 'PATCH'
     })
       .then(res => res.json())

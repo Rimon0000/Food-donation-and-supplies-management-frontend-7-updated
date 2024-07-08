@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Define the types for user and token
 export type TUser = {
+  name?: string,
   email: string;
   password: string;
 }
@@ -29,10 +30,10 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<{ user: TUser; token: TUserToken }>) => {
+    setUser: (state, action: PayloadAction<{ user?: TUser; token?: TUserToken }>) => {
       const { user, token } = action.payload;
-      state.user = user;
-      state.token = token;
+      if(user) state.user = user;
+      if(token) state.token = token;
     },
     logout: (state) => {
       state.user = null;

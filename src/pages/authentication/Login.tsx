@@ -8,7 +8,6 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { verifyToken } from "@/utils/verifyToken";
 
 type TLoginFormData = {
   email: string;
@@ -35,7 +34,7 @@ const Login = () => {
       };
       
       const res = await login(loginInfo).unwrap()
-      const token = verifyToken(res.token);
+      const token = res.token;
       dispatch(setUser({user: loginInfo, token: token}))
       toast.success("Login Done.", { id: toastId, duration: 2000 });
       navigate("/");

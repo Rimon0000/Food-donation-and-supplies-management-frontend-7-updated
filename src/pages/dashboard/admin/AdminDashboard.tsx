@@ -43,6 +43,8 @@ const AdminDashboard = ()=>{
   const {data: allUsers} = useGetAllUsersQuery(undefined)
   const {data: allVolunteers} = useGetAllVolunteersQuery(undefined)
 
+  console.log(allDonationsAmount);
+
   if(!data){
     return <div>loading.........</div>
   }

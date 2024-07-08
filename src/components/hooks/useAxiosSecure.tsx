@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hook';
 import { logout, useCurrentUser } from '@/redux/features/auth/authSlice';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://assign-7-rho.vercel.app',
 });
 
 const useAxiosSecure = () => {
@@ -16,7 +16,7 @@ const useAxiosSecure = () => {
   useEffect(() => {
     const setToken = async () => {
       if (currentUser) {
-        const { data } = await axios.post('http://localhost:5000/jwt', {
+        const { data } = await axios.post('https://assign-7-rho.vercel.app/jwt', {
           email: currentUser.email
         });
         localStorage.setItem('access-token', data.token);

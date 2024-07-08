@@ -1,8 +1,5 @@
-import UpdateSupplyModal from "@/components/donation/UpdateSupplyModal";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { useDeleteSupplyMutation, useGetAllSuppliesQuery } from "@/redux/features/supplies/suppliesApi";
-import { removeSupply } from "@/redux/features/supplies/suppliesSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
