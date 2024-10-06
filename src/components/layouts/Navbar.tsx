@@ -41,46 +41,46 @@ const Navbar = () => {
   }
 
   return (
-    <header className="bg-gray-800 text-white mx-auto py-2 fixed top-0 left-0 right-0 z-10">
+    <header className="bg-slate-100 text-black  shadow-lg mx-auto py-5 fixed left-0 right-0 top-0 z-50">
       <nav className="h-full max-w-[90%] px-[20px] mx-auto flex gap-1 justify-between items-center">
         <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
             <img
-              className="w-12 h-12 rounded-lg lg:ml-5"
-              src="https://i.ibb.co/MsmBMms/logo.jpg"
+              className="w-9 h-9 rounded-lg"
+              src="https://i.ibb.co.com/80CcDm9/logo-1.webp"
               alt=""
             />
           </Link>
-          <a className="font-bold text-xl">Nogorful</a>
+          <a className="font-bold text-3xl text-stone-600">Nogorful</a>
         </motion.div>
         <NavigationMenu className="lg:hidden ">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>
-                <Menu className="text-black"></Menu>
+                <Menu className="text-black bg-white"></Menu>
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <motion.ul className="font-semibold p-2 w-[134px]" variants={navbarAnimation}  initial="initial"  animate="animate">
                   <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/">Home</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/allSupplies">Supplies</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/allSupplies">Supplies</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/dashboard">Dashboard</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard">D-Leaderboard</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/leaderboard">Leaderboard</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/community">Community</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/community">Community</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/volunteer">Vol-Hub</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/volunteer">Vol-Hub</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/about-us">About</NavLink>
+                    <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/about-us">About</NavLink>
                   </li>
                 </motion.ul>
               </NavigationMenuContent>
@@ -89,28 +89,28 @@ const Navbar = () => {
         </NavigationMenu>
 
         <motion.div className="hidden lg:block " variants={navbarAnimation}  initial="initial"  animate="animate">
-          <ul className="flex gap-3 font-semibold">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/allSupplies">Supplies</NavLink>
-            {currentUser && <NavLink to="/dashboard">Dashboard</NavLink>}
-            <NavLink to="/leaderboard">D-Leaderboard</NavLink>
-            <NavLink to="/community">Community</NavLink>
-            <NavLink to="/volunteer">Vol-Hub</NavLink>
-            <NavLink to="/about-us">About</NavLink>
+          <ul className="flex gap-5 font-semibold">
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/">Home</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/allSupplies">Supplies</NavLink>
+            {currentUser && <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/dashboard">Dashboard</NavLink>}
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/leaderboard">Leaderboard</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/community">Community</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/volunteer">Vol-Hub</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/about-us">About</NavLink>
           </ul>
         </motion.div>
 
         <motion.div className="flex gap-2 justify-center items-center"
          variants={navbarAnimation}  initial="initial"  animate="animate">
           <NavLink to={currentUser ? "/" : "/login"}>
-            <Button onClick={handleLogout}>{currentUser ? "Logout" : "Login"}</Button>
+            <Button className="rounded-3xl font-bold text-white space-x-3 px-5" variant="destructive" onClick={handleLogout}>{currentUser ? "LOGOUT" : "LOGIN"}</Button>
           </NavLink>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="">
                 <Sun className="rotate-0 text-black scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                <Moon className="absolute  rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <Moon className="absolute text-white  rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
                 <span className="sr-only">Toggle theme</span>
               </Button>
             </DropdownMenuTrigger>
