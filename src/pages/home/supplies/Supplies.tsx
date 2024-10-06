@@ -10,18 +10,18 @@ const Supplies = () => {
   // console.log(data?.data);
 
   return (
-    <Container className="my-16 px-10">
+    <Container className="my-16 px-6">
       <h1 className="text-5xl text-center font-bold my-2">Our Supplies</h1>
-      <p className="text-center font-semibold ">
-        This are some of Our Recent Activities
+      <p className="text-center font-semibold lg:w-2/3 text-sm lg:text-base mx-auto ">
+         Join us in our mission to empower lives through generosity and compassion—your support brings positive change to the world
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {data?.data.map((item: TSupplyItem, index: string) => (
           <SuppliesCard key={index} item={item}></SuppliesCard>
         ))}
       </div>
-      <div className="text-center mt-10">
-        <Link to={`/allSupplies`}><Button>All Supplies</Button></Link>
+      <div className="text-center mt-7">
+        <Link to={`/allSupplies`}><Button className="rounded-3xl py-6 px-5" data-aos="fade-up" data-aos-duration="400">All Supplies</Button></Link>
       </div>
     </Container>
   );
