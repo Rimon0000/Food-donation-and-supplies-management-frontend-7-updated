@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Container from "@/components/Container";
-import { Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -41,7 +40,6 @@ const Contact = () => {
     const newContact = {
       ...formData,
     };
-
 
     await addContact(newContact);
     toast.success("Message Added successfully.");
