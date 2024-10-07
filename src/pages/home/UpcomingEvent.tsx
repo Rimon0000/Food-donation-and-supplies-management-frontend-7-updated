@@ -1,13 +1,17 @@
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { CalendarRange, Clock, MapPin } from "lucide-react";
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 
 const UpcomingEvent = () =>{
     return (
         <Container>
-            <h1 className="text-center text-4xl font-bold grid mx-auto">Be ready for our upcoming charity events</h1>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+            <div className="flex items-center justify-center gap-2">
+                <FaLongArrowAltDown className="h-[30px] text-blue-900"></FaLongArrowAltDown>
+                <h1 className="text-4xl font-bold">Be ready for our upcoming charity events</h1>
+            </div>
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                 <div className="shadow-xl border rounded-2xl w-full" data-aos="fade-right" data-aos-duration="2000">
                     <img className="rounded-t-2xl" src="https://i.ibb.co/SKdYpBc/Charity-caring-is-the-new-generation-guide-636x340.jpg" alt="" />
                     <div className="p-5">

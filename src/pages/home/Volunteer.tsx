@@ -27,7 +27,7 @@ const Volunteer = () => {
         <div className="lg:my-14 md:my-10 my-6">
           <p className="font-bold border-b-4 max-w-[150px] text-black"></p>
         </div>
-        <div className="flex flex-col lg:flex-row md:flex-row lg:gap-6 md:gap-6 gap-4">
+        <div className="flex flex-col lg:flex-row md:flex-row lg:gap-6 md:gap-6 gap-4" data-aos="fade-up" data-aos-duration="400">
           <Button className="uppercase w-full lg:w-auto md:w-auto font-bold rounded-3xl lg:py-5 lg:px-6 md:py-4 md:px-6 py-3 px-4 border border-slate-500 hover:bg-slate-200 hover:text-slate-900 transition-all duration-300">
             Become a volunteer
           </Button>
