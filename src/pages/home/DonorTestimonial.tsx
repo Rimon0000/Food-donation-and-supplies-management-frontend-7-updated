@@ -17,7 +17,6 @@ const DonorTestimonial = () =>{
     return (
         <Container className="my-20">
             <h1 className="text-center text-5xl font-bold">Our Top Donor</h1>
-
             <div className='mt-10'>
               <Marquee className='text-danger' speed={100}>
                 {
