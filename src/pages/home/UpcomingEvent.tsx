@@ -17,12 +17,12 @@ const UpcomingEvent = () =>{
                     <div className="p-5">
                         <div className="flex justify-between font-medium text-sm">
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                             <CalendarRange className='h-[27px] w-[27px] rounded-full p-1'></CalendarRange></button>
                                 <p>Dec31, 2024</p>
                             </div>
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                                 <Clock className='h-[27px] w-[27px] rounded-full p-1'></Clock></button>
                                 <p>9:00AM - 12:00PM</p>
                             </div>
@@ -30,9 +30,9 @@ const UpcomingEvent = () =>{
                         <h1 className="mt-4 font-semibold text-lg">Feeding for Underprivileged peoples.</h1>
                         <p className="my-4 text-justify">"Feed the Future: Join us in providing nourishment and hope to street children. Your donation can make a real difference in their lives, offering them a brighter tomorrow."</p>
                         <div className="flex justify-between font-medium">
-                                <Button className="rounded-full p-5 mt-2">Join Now</Button>
+                                <Button className="rounded-3xl p-5 mt-2 font-bold hover:bg-blue-600">Join Now</Button>
                                 <div className="mt-4 flex gap-2 items-center">
-                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                                     <MapPin className='h-[27px] w-[27px] rounded-full p-1'></MapPin></button>
                                 <p>DC Hill, Chattagram</p>
                                 </div>
@@ -45,12 +45,12 @@ const UpcomingEvent = () =>{
                     <div className="p-5">
                         <div className="flex justify-between font-medium text-sm">
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                             <CalendarRange className='h-[27px] w-[27px] rounded-full p-1'></CalendarRange></button>
                                 <p>June15, 2024</p>
                             </div>
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                             <Clock className='h-[27px] w-[27px] rounded-full p-1'></Clock></button>
                                 <p>10:00AM - 2:00PM</p>
                             </div>
@@ -60,9 +60,9 @@ const UpcomingEvent = () =>{
                             materials offer a gateway to opportunity, 
                            igniting curiosity and unlocking potential in underserved communities</p>
                            <div className="flex justify-between font-medium">
-                                <Button className="rounded-full p-5 mt-2">Join Now</Button>
+                                <Button className="rounded-3xl p-5 mt-2 font-bold hover:bg-blue-600">Join Now</Button>
                                 <div className="mt-4 flex gap-2 items-center">
-                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                                     <MapPin className='h-[27px] w-[27px] rounded-full p-1'></MapPin></button>
                                 <p>CRB, Chattagram</p>
                                 </div>
@@ -75,12 +75,12 @@ const UpcomingEvent = () =>{
                     <div className="p-5">
                         <div className="flex justify-between font-medium text-sm">
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                                 <CalendarRange className='h-[27px] w-[27px] rounded-full p-1'></CalendarRange></button>
                                 <p>June15, 2024</p>
                             </div>
                             <div className="flex gap-2 items-center">
-                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                            <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                             <Clock className='h-[27px] w-[27px] rounded-full p-1'></Clock></button>
                                 <p>10:00AM - 2:00PM</p>
                             </div>
@@ -88,9 +88,9 @@ const UpcomingEvent = () =>{
                         <h1 className="mt-4 font-semibold text-lg">Basic Education Opportunities for All.</h1>
                         <p className="my-4 text-justify">Basic education for all is the foundation of a just and equitable society, empowering individuals with the knowledge necessary to lead fulfilling lives and contribute meaningfully to their communities. </p>
                            <div className="flex justify-between font-medium">
-                                <Button className="rounded-full p-5 mt-2">Join Now</Button>
+                                <Button className="rounded-3xl p-5 mt-2 font-bold hover:bg-blue-600">Join Now</Button>
                                 <div className="mt-4 flex gap-2 items-center">
-                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-white'>
+                                <button className='border border-blue-800 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-red-400'>
                                     <MapPin className='h-[27px] w-[27px] rounded-full p-1'></MapPin></button>
                                 <p>GEC, Chattagram</p>
                                 </div>

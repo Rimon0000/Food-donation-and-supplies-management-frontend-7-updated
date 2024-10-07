@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { useQueryClient } from "react-query";
 import { useAddContactMutation } from "@/redux/features/contacts/contactsApi";
 import { toast } from "sonner";
+import { FaMailBulk, FaPhoneAlt } from "react-icons/fa";
 
 const Contact = () => {
   const [addContact] = useAddContactMutation(undefined)
@@ -63,14 +64,16 @@ const Contact = () => {
               <p className="text-justify my-4">
                 If you need anything or have any questions, please don't hesitate to reach out. You can contact us using the form provided or this email and number. We value your feedback and are here to assist you with any concerns or inquiries you may have.
               </p>
-              <div className="flex gap-3">
-                <Mail />
-                <p>rimonron@gmail.com</p>
-              </div>
-              <div className="flex gap-3 mt-4">
-                <Phone />
-                <p>+8801307-738473</p>
-              </div>
+              <div className="flex gap-3 pt-5 bg-base-200 py-5 px-8 rounded-lg border hover:border-blue-500 transition-all hover:animate-pulse hover:shadow-primary hover:shadow-md duration-300">
+             <button className='border border-blue-500 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-blue-800 hover:text-white'>
+             <FaMailBulk className='h-[35px] w-[35px] rounded-full p-2'></FaMailBulk></button>
+            <p className="font-semibold">rimonron.ad@gmail.com</p>
+          </div>
+          <div className="flex gap-3 my-4 text-center pt-5 bg-base-200 py-5 px-8 rounded-lg border hover:border-blue-500 transition-all hover:animate-pulse hover:shadow-primary hover:shadow-md duration-300">
+            <button className='border border-blue-500 rounded-full transition-all duration-300 hover:-translate-y-1 hover:bg-blue-800 hover:text-white'>
+            <FaPhoneAlt className='h-[35px] w-[35px] rounded-full p-2'></FaPhoneAlt></button>
+            <p className="font-semibold">+880 1306-260913</p>
+          </div>
             </div>
           </div>
 
@@ -128,7 +131,7 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  <Button className="mt-5" type="submit" variant="outline">
+                  <Button className="mt-5 rounded-3xl hover:bg-blue-600" type="submit">
                     Submit
                   </Button>
                 </form>
