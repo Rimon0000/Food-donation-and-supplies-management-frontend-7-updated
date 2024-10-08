@@ -17,6 +17,8 @@ import { useQueryClient } from "react-query";
 import moment from "moment";
 import { Heart, UserRound } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { FaCalendarAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 
 export type TUser = {
@@ -29,6 +31,17 @@ export type TCommentsData = {
     date: Date;
 
 }
+
+//for animation
+const navbarAnimation = {
+  initial: { scale: 0 },
+  animate: {
+    scale: 1,
+    transition: {
+      duration: 1.5,
+    },
+  },
+};
 
 const Community = () => {
     const [date, setDate] = React.useState<Date>()
@@ -59,17 +72,19 @@ const Community = () => {
     }
 
     return (
-        <Container className="my-5 mb-14">
-            <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
-              style={{ backgroundImage: "url('https://i.ibb.co/34hbmtq/donald-giannatti-czq-GBa-CVDOc-unsplash.jpg')" }} 
+        <div className="my-5 mb-14">
+            <div className="mb-10 text-white bg-cover bg-center bg-fixed h-[300px] flex items-center justify-center"
+              style={{ backgroundImage: "url('https://i.ibb.co.com/VqSWYVP/kelly-sikkema-tk9-RQCq5e-Qo-unsplash-1.webp')" }} 
             >
-                <h1 className="text-5xl text-center font-bold pt-20">Community Gratitude Wall</h1>
+              <motion.div variants={navbarAnimation}  initial="initial"  animate="animate">
+                  <h1 className="text-5xl text-center font-bold pt-14">Community Gratitude Wall</h1>
+              </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12">
+            <Container className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12">
                 <div className="sm:col-span-6 md:col-span-5 lg:col-span-4">
-                    <form onSubmit={handleAddComment} className="border shadow-2xl rounded px-6 pt-6 w-full">
-                        <h1 className="text-center text-sm text-slate-500">Share your thoughts about our platform! </h1>
+                    <form onSubmit={handleAddComment} className="border shadow-2xl rounded px-6 pt-6 w-full hover:rounded-2xl hover:border-blue-300 duration-300">
+                        <h1 className="text-center text-sm font-semibold text-slate-600">Share your thoughts about our platform! </h1>
                     <div className="mb-2">
                         <Label htmlFor="Name" className="flex text-left py-2 text-base">Name</Label>
                         <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
@@ -122,18 +137,21 @@ const Community = () => {
                     </div>
                     
                     <div className="pb-3 mt-5">
-                      <Button type="submit">Submit</Button>
+                      <Button className="rounded-3xl" type="submit">Submit</Button>
                     </div>
                 </form>
                 </div>
                 <div className="sm:col-span-6 md:col-span-7 lg:col-span-8">
-                    <h1 className="font-semibold">These are people express their gratitude and appreciation for the support they've received during difficult times on our platform.</h1>
+                    <h1 className="font-bold">These are people express their gratitude and appreciation for the support they've received during difficult times on our platform.</h1>
                     <hr className="my-6"></hr>
                     <div>
                         {
                             CommentsData?.data?.map((item : TCommentsData) => (
-                                <Card className="shadow-xl rounded-xl p-5 mb-8 text-justify">
+                                <Card className="shadow-xl rounded-xl p-5 mb-8 text-justify bg-base-200 py-5 px-8 border hover:border-blue-500 transition-all  hover:shadow-primary hover:shadow-md duration-300">
+                                  <div className="flex items-center gap-2">
+                                    <FaCalendarAlt className="text-slate-700"></FaCalendarAlt>
                                     <p className=" text-slate-500">{moment(new Date(`${item.date}`)).format('DD MMMM YYYY')}</p>
+                                  </div>
                                     <p className="font-medium my-4 text-sm">{item.comment}</p>
                                     <hr className="mb-4"></hr>
                                     <div className="flex items-center justify-between font-bold">
@@ -149,8 +167,8 @@ const Community = () => {
                         }
                     </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </div>
     )
 }
 

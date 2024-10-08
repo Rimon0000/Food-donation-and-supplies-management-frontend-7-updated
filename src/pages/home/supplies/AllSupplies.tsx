@@ -47,7 +47,7 @@ const AllSupplies = () => {
   });
 
   return (
-    <Container className="my-24 px-10">
+    <Container className="mt-24 mb-20 px-10">
       <Helmet>
         <title>All Supplies</title>
       </Helmet>
