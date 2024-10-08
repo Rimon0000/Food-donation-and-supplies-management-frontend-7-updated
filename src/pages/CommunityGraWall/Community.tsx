@@ -19,6 +19,7 @@ import { Heart, UserRound } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 
 export type TUser = {
@@ -73,6 +74,10 @@ const Community = () => {
 
     return (
         <div className="my-5 mb-14">
+          <Helmet>
+            <title>Community</title>
+          </Helmet>
+
             <div className="mb-10 text-white bg-cover bg-center bg-fixed h-[300px] flex items-center justify-center"
               style={{ backgroundImage: "url('https://i.ibb.co.com/VqSWYVP/kelly-sikkema-tk9-RQCq5e-Qo-unsplash-1.webp')" }} 
             >

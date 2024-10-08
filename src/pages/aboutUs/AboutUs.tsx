@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import {  useGetAllVolunteersQuery, useGetFilteredVolunteersQuery } from "@/redux/features/volunteers/VolunteersApi";
 import { Instagram, Linkedin, LucideFacebook, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 type TVolunteerData = {
   image: string;
@@ -28,6 +29,10 @@ const AboutUs = () => {
 
   return (
     <Container className="my-5 mb-20 px-10">
+      <Helmet>
+        <title>About US</title>
+      </Helmet>
+
        <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
         style={{ backgroundImage: "url('https://i.ibb.co/mqZZfPb/philip-strong-i-OBTE2xs-Yko-unsplash.jpg')" }} 
       >

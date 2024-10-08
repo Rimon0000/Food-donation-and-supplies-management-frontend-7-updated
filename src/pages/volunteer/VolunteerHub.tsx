@@ -7,6 +7,10 @@ import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { toast } from "sonner";
 import { useQueryClient } from "react-query";
 import { useAddVolunteerMutation } from "@/redux/features/volunteers/VolunteersApi";
+import loginAnm from "../../../src/assets/animation/Animation - 1728405945731.json"
+import Lottie from "lottie-react";
+import { Helmet } from "react-helmet";
+
 
 
 export type TUser = {
@@ -51,42 +55,50 @@ const VolunteerHub = () => {
 
     return (
         <Container className="my-5 mb-20">
-            <div className="mb-10 text-white bg-cover bg-center h-[200px] bg-fixed rounded-lg"
-              style={{ backgroundImage: "url('https://i.ibb.co/b3bBYVt/nogorful-2.jpg')" }} 
-            >
-                <h1 className="text-5xl text-center font-bold pt-20">Welcome to Our Volunteer Hub</h1>
+            <Helmet>
+              <title>VolunteerHub</title>
+            </Helmet>
+
+             <p className="text-4xl font-bold text-center pt-24">Supporting and connecting communities</p>
+            <div className="grid shadow-md py-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16 px-20">
+                <div className="text-center hover:scale-105 duration-300">
+                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/PZHPpgM/hand.webp" alt="" />
+                    <h1 className="text-2xl font-bold mt-6">DONATIONS</h1>
+                    <p className="my-6">Nogorful is always with you at any crisis in Bangladesh to help and support you.</p>
+                    <Button className="rounded-3xl bg-green-600 font-bold px-9">Donate Now</Button>
+                </div>
+                <div className="text-center hover:scale-105 duration-300">
+                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/tKRzY02/volunteer.webp" alt="" />
+                    <h1 className="text-2xl font-bold mt-6">VOLUNTEER</h1>
+                    <p className="my-6 ">Nogorful will be proud to have you as a volunteer.</p>
+                    <Button className="rounded-3xl bg-green-600 font-bold px-14">Join Us</Button>
+                </div>
+                <div className="text-center hover:scale-105 duration-300">
+                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/5c3VZwd/sopnsor.webp" alt="" />
+                    <h1 className="text-2xl font-bold mt-6">SPONSORSHIP</h1>
+                    <p className="my-6">Support us by your donations to create a better future.</p>
+                    <Button className="rounded-3xl bg-green-600 font-bold px-12">Sponsor</Button>
+                </div>
             </div>
 
-             <p className="text-4xl font-bold text-center">Supporting and connecting communities</p>
-            <div className="grid shadow-md py-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 my-16 px-20">
-                <div className="text-center">
-                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/PZHPpgM/hand.webp" alt="" />
-                    <h1 className="text-2xl font-bold mt-8">DONATIONS</h1>
-                    <p className="my-6">Nogorful is always with you at any crisis in Bangladesh to help and support you.</p>
-                    <Button>Donate Now</Button>
-                </div>
-                <div className="text-center">
-                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/tKRzY02/volunteer.webp" alt="" />
-                    <h1 className="text-2xl font-bold mt-8">VOLUNTEER</h1>
-                    <p className="my-6 ">Nogorful will be proud to have you as a volunteer.</p>
-                    <Button>Join Us</Button>
-                </div>
-                <div className="text-center">
-                    <img className="bg-blue-900 mx-auto rounded-sm" src="https://i.ibb.co/5c3VZwd/sopnsor.webp" alt="" />
-                    <h1 className="text-2xl font-bold mt-8">SPONSORSHIP</h1>
-                    <p className="my-6">Support us by your donations to create a better future.</p>
-                    <Button>Sponsor</Button>
-                </div>
+            <div className=" ">
+              <p className="text-3xl md:text-4xl lg:text-5xl uppercase font-medium opacity-80 border-b-2 pb-1 border-[#8cbd51] w-1/3 lg:w-2/6 mb-4" data-aos="fade-right">
+                Join Us -
+              </p>
+              <h2 className=" font-bold lg:w-2/5" data-aos="fade-up">
+                Let's help ourselves and make happiness. We will be proud to have you as a volunteer.
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-12 px-10">
             <div className="sm:col-span-6 md:col-span-6 lg:col-span-6 text-justify">
-                <img className="rounded-lg lg:mt-32" src="https://i.ibb.co/58bw9jD/dakota-corbin-xh4m-G4cq-HGg-unsplash.jpg" alt="" />
+                {/* <img className="rounded-lg lg:mt-32" src="https://i.ibb.co/58bw9jD/dakota-corbin-xh4m-G4cq-HGg-unsplash.jpg" alt="" /> */}
+                <div className=" border-b border-r border-gray-300">
+                  <Lottie animationData={loginAnm} />
+                </div>
             </div>
             <div className="sm:col-span-6 md:col-span-6 lg:col-span-6">
-                <h1 className="text-4xl font-bold">Join Us -</h1>
-                <p className="font-semibold mb-6 mt-3">Let's help ourselves and make happiness. We will be proud to have you as a volunteer.</p>
-                <form onSubmit={handleAddVolunteer} className=" shadow-2xl border rounded px-6 pt-6 w-full">
+                <form onSubmit={handleAddVolunteer} className=" shadow-2xl border rounded-lg px-6 pt-6 w-full">
                     <h1 className="text-center font-semibold text-slate-500">Sign Up with </h1>
                 <div className="mb-2">
                     <Label htmlFor="Image" className="flex text-left py-2 text-base">Image</Label>
@@ -105,7 +117,8 @@ const VolunteerHub = () => {
                       defaultValue={currentUser?.name}
                       required/>
                 </div>
-                <div className="mb-2">
+                <div className="mb-2 flex items-center gap-3">
+                <div className="w-full">
                     <Label htmlFor="Email" className="flex text-left py-2 text-base">Email</Label>
                     <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
                       name="email"
@@ -114,13 +127,14 @@ const VolunteerHub = () => {
                       defaultValue={currentUser?.email}
                       required/>
                 </div>
-                <div className="mb-2">
+                <div className="w-full">
                     <Label htmlFor="Phone" className="flex text-left py-2 text-base">Phone No.</Label>
                     <input className="shadow  border rounded w-full py-2 px-3 text-gray-700"
                       name="phone"
                       type="text"
                       placeholder="Phone No."
                       required/>
+                </div>
                 </div>
                 <div className="mb-2">
                     <Label htmlFor="Location" className="flex text-left py-2 text-base">Location</Label>
@@ -130,8 +144,8 @@ const VolunteerHub = () => {
                       placeholder="Location"
                       required/>
                 </div>                
-                <div className="pb-3 mt-5">
-                  <Button type="submit">Join Us</Button>
+                <div className="pb-5 mt-5">
+                  <Button className="rounded-3xl hover:bg-red-900" type="submit">Join Us</Button>
                 </div>
             </form>
             </div>    
