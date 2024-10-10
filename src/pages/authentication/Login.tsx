@@ -9,10 +9,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet";
-import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { FaEyeSlash, } from "react-icons/fa";
 import Lottie from "lottie-react";
 import loginAnimation from "../../../src/assets/animation/login.json"
-import Swal from "sweetalert2";
+
 
 
 type TLoginFormData = {
@@ -66,7 +66,7 @@ const Login = () => {
           </p>
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b border-gray-600 lg:w-1/4"></span>
-            <span className="text-xs text-center uppercase text-gray-400">
+            <span className="text-xs text-center font-semibold uppercase text-gray-500">
               login with email
             </span>
             <span className="w-1/5 border-b border-gray-600 lg:w-1/4"></span>
@@ -119,7 +119,7 @@ const Login = () => {
               </div>
             </div>
             <div className="pt-6">
-              <Button type="submit" className="uppercase rounded-3xl px-4 lg:px-5">
+              <Button type="submit" className="uppercase rounded-3xl px-4 lg:px-5 hover:bg-green-700 hover:text-white">
                 login
               </Button>
             </div>
