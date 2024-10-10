@@ -21,7 +21,7 @@ const SuppliesCard = ({item}: {item: TSupplyItem}) =>{
                     <Heart></Heart>
                     </div>
                 </div>
-                <Link className="w-full" to={`/supplies/${_id}`}><Button className="w-full rounded-3xl mt-1">View Detail</Button></Link>
+                <Link className="w-full" to={`/supplies/${_id}`}><Button className="w-full rounded-3xl mt-1 hover:bg-green-700 hover:text-white">View Detail</Button></Link>
             </div>
         </div>
     )

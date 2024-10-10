@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet";
 import { FaRedo, FaSearch } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { resetFilterAndSearch, selectFilter, selectSearchText, setFilter, setSearchText } from "@/redux/features/supplies/suppliesSlice";
+import Lottie from "lottie-react";
+import emptyProduct from "../../../assets/animation/empty.json"
 
 export type TSupplyItem = {
   _id: string;
@@ -93,11 +95,17 @@ const AllSupplies = () => {
         </div>
       </div>
 
+      {filteredSupplies?.length ? (
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredSupplies?.map((item: TSupplyItem, index: string) => (
           <SuppliesCard key={index} item={item} />
         ))}
       </div>
+      ) : (
+        <div className="flex items-center justify-center">
+          <Lottie className="w-2/5" animationData={emptyProduct} />
+        </div>
+      )}
     </Container>
   );
 };

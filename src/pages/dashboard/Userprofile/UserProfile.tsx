@@ -48,8 +48,8 @@ const UserProfile = () => {
                 </div>
             </div>
             <div className="mt-6 relative">
-                <img src="https://i.ibb.co/tMcJKVM/roman-denisenko-XLm-DKEvxrk-unsplash.jpg" alt="" />
-                <div className="absolute top-[70%] left-[40%]">
+                <img className="h-[250px] w-full" src="https://i.ibb.co.com/8PGDvdK/dashboard-1.webp" alt="" />
+                <div className="absolute top-[49%] left-[40%]">
                     <div className="flex place-content-center">
                       <img className="z-10  p-1 max-h-[150px] max-w-[150px] rounded-full border-2 image-border-color stroke-2"
                         src={singleUser?.image} alt=""/>
@@ -63,32 +63,32 @@ const UserProfile = () => {
             <div className="lg:flex justify-between mt-10 mb-8">
                 <div className="lg:flex gap-8 lg:mt-1 md:mt-1 mt-5">
                     <div>
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-3">
                             <Mail/>
-                            <p>Email</p>
+                            <p className="font-semibold">Email</p>
                         </div>
                         <p>{singleUser?.email}</p>
                     </div>
                     <div className="lg:mt-1 md:mt-1 mt-5">
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-3">
                             <Mail/>
-                            <p>BOD</p>
+                            <p className="font-semibold">BOD</p>
                         </div>
                         <p>{moment(new Date(`${singleUser?.date}`)).format('DD MMMM YYYY')}</p>
                     </div>
                 </div>
                 <div className="lg:flex gap-8 lg:mt-1 md:mt-1 mt-5">
                     <div>
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-3">
                             <Contact />
-                            <p>Contact Us</p>
+                            <p className="font-semibold">Contact Us</p>
                         </div>
                         <p>{singleUser?.contact}</p>
                     </div>
                     <div className="lg:mt-1 md:mt-1 mt-5">
-                        <div className="flex gap-3">
+                        <div className="flex items-center gap-3">
                             <Navigation />
-                            <p>Location</p>
+                            <p className="font-semibold">Location</p>
                         </div>
                         <p>{singleUser?.address}</p>
                     </div>

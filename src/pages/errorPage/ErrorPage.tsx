@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link, useRouteError } from "react-router-dom";
+import errorAnimation from "../../assets/animation/error.json"
+import Lottie from "lottie-react";
 
 type TErrorMessage = {
     message: string
@@ -13,9 +15,9 @@ const ErrorPage = () => {
   return (
     <div className="h-[100vh]">
       <main className="h-screen w-full flex flex-col justify-center items-center ">
-        <img className="w-[40%] rounded-2xl" src="https://i.ibb.co/6X7NSJW/error.jpg" alt="Error Image" />
+      <Lottie animationData={errorAnimation}></Lottie>
         
-        <Button className="my-10"><Link to="/">Go Home</Link></Button>
+        <Button className="mb-4 px-12 rounded-3xl hover:bg-green-700 hover:text-white"><Link to="/">Go Home</Link></Button>
         <p className='font-semibold'>
             Please read the ERROR Message:
             <span className="text-red-700 ml-2">{error?.message}</span>

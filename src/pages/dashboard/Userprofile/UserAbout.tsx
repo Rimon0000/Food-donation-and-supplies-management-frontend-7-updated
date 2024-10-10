@@ -14,9 +14,9 @@ const UserAbout = ({ singleUser = {} as TSingleUser }: { singleUser: TSingleUser
 
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="text-center">
         <CardTitle>About</CardTitle>
-        <CardDescription>To add all information, please update your profile.</CardDescription>
+        <CardDescription className="text-slate-500">To add all information, please update your profile.</CardDescription>
       </CardHeader>
       <hr />
       <CardContent className="mt-5">

@@ -63,12 +63,12 @@ const DonationModal = ({supply}: {supply : TSupplyItem}) =>{
     return (
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="mt-8">Donate Now</Button>
+            <Button className="mt-8 rounded-3xl uppercase text-center px-16 hover:bg-green-700 hover:text-white">Donate Now</Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] text-white">
             <DialogHeader>
               <DialogTitle>Add Donation</DialogTitle>
-              <DialogDescription>
+              <DialogDescription className="text-slate-500">
                 Please donate to help us reach our goal.
               </DialogDescription>
             </DialogHeader>
