@@ -42,7 +42,7 @@ const Navbar = () => {
 
   return (
     <header className="bg-slate-100 text-black  shadow-lg mx-auto py-5 fixed left-0 right-0 top-0 z-50">
-      <nav className="h-full max-w-[90%] px-[20px] mx-auto flex gap-1 justify-between items-center">
+      <nav className="h-full max-w-[90%] px-[12px] mx-auto flex gap-1 justify-between items-center">
         <motion.div className="flex gap-3 justify-center items-center" variants={navbarAnimation}  initial="initial"  animate="animate">
           <Link to="/">
             <img
@@ -92,8 +92,8 @@ const Navbar = () => {
           <ul className="flex gap-5 font-semibold">
             <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/">Home</NavLink>
             <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/allSupplies">Supplies</NavLink>
-            {currentUser && <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/dashboard">Dashboard</NavLink>}
-            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/leaderboard">Leaderboard</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/dashboard">Dashboard</NavLink>
+            <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/leaderboard">L-board</NavLink>
             <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/community">Community</NavLink>
             <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/volunteer">Vol-Hub</NavLink>
             <NavLink className={({ isActive }) =>`transition-all hover:underline underline-offset-8 hover:text-red-400 ${  isActive ? 'text-red-400 underline underline-offset-8' : ''}`} to="/about-us">About</NavLink>

@@ -60,7 +60,7 @@ const Login = () => {
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-start lg:border-b lg:border-r lg:border-gray-300">
           <Lottie animationData={loginAnimation} />
         </div>
-        <div className="w-full lg:w-1/2 px-4">
+        <div className="w-full lg:w-1/2 px-4 lg:px-8 md:px-6 shadow-md rounded-xl py-5">
           <p className="mb-4 lg:mb-12 text-center lg:text-start text-2xl lg:text-3xl font-semibold">
             Login Your Account
           </p>
@@ -126,7 +126,7 @@ const Login = () => {
           </form>
       
           <div className="flex items-center justify-between mt-4">
-            <span className="w-1/12 border-b border-gray-600 lg:w-1/4 md:w-1/4"></span>
+            <span className="w-1/12 border-b border-gray-600 lg:w-2/12 md:w-1/4"></span>
             <span className="text-base text-gray-500">
               Don't have an account?{" "}
               <Link
@@ -136,7 +136,7 @@ const Login = () => {
                 Register
               </Link>
             </span>
-            <span className="w-1/12 border-b border-gray-600 lg:w-1/4 md:w-1/4"></span>
+            <span className="w-1/12 border-b border-gray-600 lg:w-2/12 md:w-1/4"></span>
           </div>
         </div>
       </div>

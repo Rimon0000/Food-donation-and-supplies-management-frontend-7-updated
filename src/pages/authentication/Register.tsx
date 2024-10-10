@@ -58,7 +58,7 @@ const Register = () => {
       </Helmet>
 
       <div className="flex flex-col lg:flex-row w-full justify-center items-center max-w-7xl mx-auto my-6 px-4 md:px-6 lg:px-8 gap-6 lg:gap-8">
-        <div className="w-full lg:w-1/2 px-4">
+        <div className="w-full lg:w-1/2 px-4 lg:px-8 md:px-6 shadow-md rounded-xl py-5">
           <p className="mb-4 lg:mb-12 text-center lg:text-start text-2xl lg:text-3xl font-semibold">
             Register Your Account
           </p>
@@ -138,7 +138,7 @@ const Register = () => {
           </form>
       
           <div className="flex items-center justify-between mt-4">
-            <span className="w-1/12 border-b border-gray-600 lg:w-1/4 md:w-1/4"></span>
+            <span className="w-1/12 border-b border-gray-600 lg:w-2/12 md:w-1/4"></span>
             <span className="text-base text-gray-500">
             Already have an account?{" "}
               <Link
@@ -148,7 +148,7 @@ const Register = () => {
                 Login
               </Link>
             </span>
-            <span className="w-1/12 border-b border-gray-600 lg:w-1/4 md:w-1/4"></span>
+            <span className="w-1/12 border-b border-gray-600 lg:w-2/12 md:w-1/4"></span>
           </div>
         </div>
 
