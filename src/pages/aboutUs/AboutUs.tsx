@@ -5,9 +5,9 @@ import {  useGetAllVolunteersQuery, useGetFilteredVolunteersQuery } from "@/redu
 import Lottie from "lottie-react";
 import {  MapPin, Twitter } from "lucide-react";
 import { useState } from "react";
-import { Helmet } from "react-helmet";
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaMailBulk, FaPhoneAlt, FaUserFriends } from "react-icons/fa";
 import emptyProduct from "../../assets/animation/empty.json"
+import { Helmet } from "react-helmet";
 
 type TVolunteerData = {
   image: string;

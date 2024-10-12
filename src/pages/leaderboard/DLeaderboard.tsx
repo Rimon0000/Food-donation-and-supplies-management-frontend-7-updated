@@ -1,18 +1,21 @@
 import Container from "@/components/Container";
 import {  Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow,} from "@/components/ui/table"
 import { useGetAllDonationsQuery } from "@/redux/features/donation/donationApi";
+import Lottie from "lottie-react";
 import { Coins } from "lucide-react";
 import { Helmet } from "react-helmet";
+import emptySupply from "../../assets/animation/empty.json"
 
 
 type TDonationData = {
   name: string;
-  totalQuantity: number;
+  totalAmount: number;
   index: number
 }
 
 const DLeaderboard = () => {
     const {data: donationsData} = useGetAllDonationsQuery(undefined)
+    console.log(donationsData?.data);
 
     return (
         <Container className="mb-16 mt-20">
@@ -33,13 +36,23 @@ const DLeaderboard = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                { donationsData?.data?.map((item : TDonationData, index: number) => (  
+              { donationsData?.data?.length ? (
+                 donationsData?.data?.map((item : TDonationData, index: number) => (  
                 <TableRow>
                   <TableCell className="font-semibold"><span className="border-2 border-blue-500 rounded-full px-[12px] py-[6px] hover:bg-slate-400 duration-300">{index + 1}</span></TableCell>
                   <TableCell className="font-semibold hover:underline hover:underline-offset-8">{item.name}</TableCell>
-                  <TableCell className="font-semibold flex gap-2 items-center"><Coins className="text-slate-500"></Coins><span>{item.totalQuantity}</span></TableCell>
+                  <TableCell className="font-semibold flex gap-2 items-center"><Coins className="text-slate-500"></Coins><span>{item?.totalAmount}</span></TableCell>
                 </TableRow>
-                 ))}
+                 ))
+                ) : (
+                  <TableRow>
+                    <TableCell colSpan={4}>
+                      <div className="flex items-center justify-center">
+                        <Lottie className="w-2/5" animationData={emptySupply} />
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                )}
               </TableBody>
             </Table>
         </Container>

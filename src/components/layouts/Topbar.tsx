@@ -32,6 +32,7 @@ const TopBar = () => {
     //handle logout
     const handleLogout = () => {
       dispatch(logout())
+      
     }
 
     return (

@@ -10,6 +10,7 @@ import Lottie from "lottie-react";
 import emptyProduct from "../../../assets/animation/empty.json"
 
 export type TSupplyItem = {
+  data: TSupplyItem;
   _id: string;
   image: string;
   title: string;
