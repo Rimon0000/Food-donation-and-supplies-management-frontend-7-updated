@@ -20,6 +20,8 @@ import { Card } from "@/components/ui/card";
 import { FaCalendarAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import Lottie from "lottie-react";
+import emptyProduct from "../../assets/animation/empty.json"
 
 
 export type TUser = {
@@ -150,7 +152,7 @@ const Community = () => {
                     <h1 className="font-bold">These are people express their gratitude and appreciation for the support they've received during difficult times on our platform.</h1>
                     <hr className="my-6"></hr>
                     <div>
-                        {
+                        { CommentsData?.data?.length ? (
                             CommentsData?.data?.map((item : TCommentsData) => (
                                 <Card className="shadow-xl rounded-xl p-5 mb-8 text-justify bg-base-200 py-5 px-8 border hover:border-blue-500 transition-all  hover:shadow-primary hover:shadow-md duration-300">
                                   <div className="flex items-center gap-2">
@@ -168,8 +170,11 @@ const Community = () => {
                                     </div>
                                 </Card>
                             ))
-
-                        }
+                          ) : (
+                            <div className="flex items-center justify-center">
+                              <Lottie className="w-2/5" animationData={emptyProduct} />
+                            </div>
+                          )}
                     </div>
                 </div>
             </Container>

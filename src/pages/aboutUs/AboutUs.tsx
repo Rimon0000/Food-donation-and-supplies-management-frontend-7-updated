@@ -2,10 +2,12 @@ import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {  useGetAllVolunteersQuery, useGetFilteredVolunteersQuery } from "@/redux/features/volunteers/VolunteersApi";
+import Lottie from "lottie-react";
 import {  MapPin, Twitter } from "lucide-react";
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaMailBulk, FaPhoneAlt, FaUserFriends } from "react-icons/fa";
+import emptyProduct from "../../assets/animation/empty.json"
 
 type TVolunteerData = {
   image: string;
@@ -69,7 +71,9 @@ const AboutUs = () => {
           <FaUserFriends className="h-[40px] w-[40px] text-[#525050]"></FaUserFriends>
           <h1 className="text-center text-5xl font-bold">Our Volunteers</h1>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-10">
+        {volunteersData?.data?.length ?(
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 mt-10">
           {
             volunteersData?.data?.map((item : TVolunteerData) => (
               <Card className="flex flex-col lg:flex-row gap-5 p-2">
@@ -129,6 +133,12 @@ const AboutUs = () => {
         {!showAllVolunteers && (
           <div className="text-center mt-9">
             <Button className="rounded-3xl px-8 py-6 hover:bg-green-700 hover:shadow-xl" onClick={seeAllHandler}>All Volunteers</Button>
+          </div>
+        )}
+        </div>
+        ) : (
+          <div className="flex items-center justify-center">
+            <Lottie className="w-2/5" animationData={emptyProduct} />
           </div>
         )}
       </Container>
