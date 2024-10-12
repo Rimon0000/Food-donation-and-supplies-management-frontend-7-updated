@@ -8,6 +8,8 @@ import { Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { TSupplyItem } from "../home/supplies/AllSupplies";
+import Lottie from "lottie-react";
+import emptySupply from "../../assets/animation/empty.json"
 
 const AllSuppliesTabular = () =>{
   const { data } = useGetAllSuppliesQuery(undefined);
@@ -57,7 +59,8 @@ const AllSuppliesTabular = () =>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item : TSupplyItem, index: string) => (
+                {data?.data?.length ? (
+                 data?.data?.map((item : TSupplyItem, index: string) => (
                   <TableRow key={item._id}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell className="font-medium">{item?.title}</TableCell>
@@ -71,7 +74,16 @@ const AllSuppliesTabular = () =>{
                       <UpdateSupplyModal item={item}></UpdateSupplyModal>
                       </TableCell>
                   </TableRow>
-                ))}
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={4}>
+                    <div className="flex items-center justify-center">
+                      <Lottie className="w-2/5" animationData={emptySupply} />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              )}
               </TableBody>
               <TableFooter>
                 <TableRow>

@@ -45,7 +45,7 @@ const UpdateSupplyModal = ({item}: {item: TSupplyItem}) =>{
               <FilePenLine></FilePenLine>
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] text-white">
             <DialogHeader>
               <DialogTitle>Update Supply</DialogTitle>
               <DialogDescription>

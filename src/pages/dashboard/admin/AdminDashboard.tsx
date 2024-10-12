@@ -13,6 +13,9 @@ import { useGetAllUsersQuery } from '@/redux/features/users/UsersApi';
 import { useGetAllCommentsQuery } from '@/redux/features/comments/commentsApi';
 import { useGetAllVolunteersQuery } from '@/redux/features/volunteers/VolunteersApi';
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import Lottie from 'lottie-react';
+import emptyDonation from "../../../assets/animation/empty.json"
+import loadingAnimation from "../../../assets/animation/loading.json"
 
 type TDonationItem = {
   category: string;
@@ -43,10 +46,10 @@ const AdminDashboard = ()=>{
   const {data: allUsers} = useGetAllUsersQuery(undefined)
   const {data: allVolunteers} = useGetAllVolunteersQuery(undefined)
 
-  console.log(allDonationsAmount);
+  // console.log(allDonationsAmount);
 
   if(!data){
-    return <div>loading.........</div>
+    return <div><Lottie className="w-2/5" animationData={loadingAnimation} /></div>
   }
 
   const chartData = data?.data?.map((item : TDonationItem) => ({
@@ -115,6 +118,7 @@ const AdminDashboard = ()=>{
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mt-14'>
           <div>
             <h1 className='font-semibold'>Your Donation statistics</h1>
+            {chartData?.length ? (
             <ResponsiveContainer width="100%" height={400} className="h-screen">
                 <PieChart width={400} height={400}>
                 <Pie data={chartData} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8"
@@ -132,6 +136,11 @@ const AdminDashboard = ()=>{
                 />
               </PieChart>
             </ResponsiveContainer>
+            ) : (
+              <div className="flex items-center justify-center">
+                <Lottie className="w-2/5" animationData={emptyDonation} />
+              </div>
+            )}
           </div>
           <div>
             <h1 className='font-semibold'>Volunteers list</h1>
@@ -146,16 +155,26 @@ const AdminDashboard = ()=>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {allVolunteers?.data?.map((item : TVolunteer) => (
-                  <TableRow key={item?._id}>
-                    <TableCell><img className='rounded-full max-w-[70px] h-[70px]' src={item?.image} alt="" /></TableCell>
-                    <TableCell>{item?.name}</TableCell>
-                    <TableCell>{item?.phone}</TableCell>
-                    <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
-                      {item?.location}
+                {allVolunteers?.data?.length ? (
+                  allVolunteers?.data?.map((item : TVolunteer) => (
+                    <TableRow key={item?._id}>
+                      <TableCell><img className='rounded-full max-w-[70px] h-[70px]' src={item?.image} alt="" /></TableCell>
+                      <TableCell>{item?.name}</TableCell>
+                      <TableCell>{item?.phone}</TableCell>
+                      <TableCell className="text-right flex items-center justify-end place-content-center mt-7"> 
+                        {item?.location}
+                        </TableCell>
+                    </TableRow>
+                  ))
+                )  : (
+                    <TableRow>
+                      <TableCell colSpan={4}>
+                        <div className="flex items-center justify-center">
+                          <Lottie className="w-2/5" animationData={emptyDonation} />
+                        </div>
                       </TableCell>
-                  </TableRow>
-                ))}
+                    </TableRow>
+                  )}
               </TableBody>
               <TableFooter>
                 <TableRow>

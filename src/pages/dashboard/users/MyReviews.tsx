@@ -3,6 +3,8 @@ import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hook";
 import { useGetCommentsByEmailQuery } from "@/redux/features/comments/commentsApi";
 import moment from "moment";
+import Lottie from "lottie-react";
+import emptySupply from "../../../assets/animation/empty.json"
 
 export type TReview = {
     _id: string,
@@ -34,14 +36,24 @@ const MyReviews = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {userReviews?.data?.map((item: TReview, index: string) => (
+              {userReviews?.data?.length ? (
+                userReviews?.data?.map((item: TReview, index: string) => (
                   <TableRow key={item._id}>
                     <TableCell className="font-medium">{index + 1}</TableCell>
                     <TableCell>{item?.name}</TableCell>
                     <TableCell>{moment(new Date(`${item?.date}`)).format('DD MMMM YYYY')}</TableCell>
                     <TableCell className="text-justify max-w-[82ch]">{item?.comment}</TableCell>
                   </TableRow>
-                ))}
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={4}>
+                    <div className="flex items-center justify-center">
+                      <Lottie className="w-2/5" animationData={emptySupply} />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              )}
               </TableBody>
               <TableFooter>
                 <TableRow>

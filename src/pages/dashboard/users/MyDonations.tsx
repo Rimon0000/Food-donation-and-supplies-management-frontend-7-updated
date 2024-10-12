@@ -3,6 +3,8 @@ import { useCurrentUser } from "@/redux/features/auth/authSlice";
 import { useGetDonationByEmailQuery } from "@/redux/features/donation/donationApi";
 import { useAppSelector } from "@/redux/hook";
 import { TDonationAmount } from "../Dashboard";
+import Lottie from "lottie-react";
+import emptySupply from "../../../assets/animation/empty.json"
 
 export type TDonation = {
     _id: string,
@@ -43,7 +45,8 @@ const MyDonations = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {userDonations?.data?.map((item: TDonation, index: string) => (
+              {userDonations?.data?.length ? (
+                userDonations?.data?.map((item: TDonation, index: string) => (
                   <TableRow key={item._id}>
                     <TableCell className="font-medium">{index + 1}</TableCell>
                     <TableCell>{item?.category}</TableCell>
@@ -51,7 +54,16 @@ const MyDonations = () => {
                     <TableCell>{item?.amount}</TableCell>
                     <TableCell className="text-right flex items-center justify-end place-content-center mt-7">{item?.message}</TableCell>
                   </TableRow>
-                ))}
+                   ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={4}>
+                        <div className="flex items-center justify-center">
+                          <Lottie className="w-2/5" animationData={emptySupply} />
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
               </TableBody>
               <TableFooter>
                 <TableRow>

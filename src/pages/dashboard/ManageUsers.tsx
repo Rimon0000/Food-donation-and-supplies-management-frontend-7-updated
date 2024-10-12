@@ -3,6 +3,8 @@ import Swal from 'sweetalert2';
 import { useGetAllUsersQuery } from '@/redux/features/users/UsersApi';
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
+import Lottie from 'lottie-react';
+import emptySupply from "../../assets/animation/empty.json"
 
 export type TUser = {
     _id: number;
@@ -49,18 +51,28 @@ const ManageUsers = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {users?.data?.map((item: TUser, index: number) => (
+          {users?.data?.length ? (
+           users?.data?.map((item: TUser, index: number) => (
             <TableRow key={item._id}>
               <TableCell>{index + 1}</TableCell>
               <TableCell className="font-medium">{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell className="text-right flex items-center justify-end place-content-center mt-7">
+              <TableCell className="text-right flex items-center justify-end place-content-center mt-7 font-bold">
                 {item?.role === 'admin' ? 'Admin' : (
-                  <Button onClick={() => handleMakeAdmin(item)} className="btn btn-ghost bg-orange-500 text-white">Admin</Button>
+                  <Button onClick={() => handleMakeAdmin(item)} className="btn btn-ghost bg-orange-400 text-white rounded-3xl hover:text-slate-500 font-bold">Admin</Button>
                 )}
               </TableCell>
             </TableRow>
-          ))}
+          ))
+         ) : (
+           <TableRow>
+             <TableCell colSpan={4}>
+               <div className="flex items-center justify-center">
+                 <Lottie className="w-2/5" animationData={emptySupply} />
+               </div>
+             </TableCell>
+           </TableRow>
+         )}
         </TableBody>
         <TableFooter>
           <TableRow>

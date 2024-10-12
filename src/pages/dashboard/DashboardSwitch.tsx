@@ -4,14 +4,16 @@ import { useCurrentUser } from '@/redux/features/auth/authSlice';
 import useAdmin from '@/components/hooks/useAdmin';
 import Dashboard from '@/pages/dashboard/Dashboard';
 import AdminDashboard from '@/pages/dashboard/admin/AdminDashboard';
+import Lottie from 'lottie-react';
+import loadingAnimation from "../../assets/animation/loading.json"
 
 const DashboardSwitch = () => {
   const currentUser = useAppSelector(useCurrentUser);
   const [isAdmin, isAdminLoading] = useAdmin();
-  console.log("isAdmin", isAdmin);
+  // console.log("isAdmin", isAdmin);
 
   if (isAdminLoading) {
-    return <progress className="progress w-56"></progress>;
+    return <div><Lottie className="w-2/5" animationData={loadingAnimation} /></div>;
   }
 
   if (!currentUser) {

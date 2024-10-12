@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
 import { useDeleteTestimonialMutation, useGetAllTestimonialQuery } from "@/redux/features/testimonial/TestimonialsApi";
 import { removeTestimonial } from "@/redux/features/testimonial/testimonialsSlice";
 import UpdateTestimonialModal from "@/components/donation/UpdateTestimonialModal";
+import Lottie from "lottie-react";
+import emptySupply from "../../assets/animation/empty.json"
 
 export type TTestimonial = {
     _id: string,
@@ -66,7 +68,8 @@ const AllTestimonialTabular = () =>{
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {data?.data?.map((item: TTestimonial, index: string) => (
+                {data?.data?.length ? (
+                 data?.data?.map((item: TTestimonial, index: string) => (
                   <TableRow key={item._id}>
                     <TableCell>{index + 1}</TableCell>
                     <TableCell><img className='rounded-full max-w-[70px] h-[70px]' src={item?.image} alt="" /></TableCell>
@@ -80,7 +83,16 @@ const AllTestimonialTabular = () =>{
                       <UpdateTestimonialModal item={item}></UpdateTestimonialModal>
                       </TableCell>
                   </TableRow>
-                ))}
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={4}>
+                    <div className="flex items-center justify-center">
+                      <Lottie className="w-2/5" animationData={emptySupply} />
+                    </div>
+                  </TableCell>
+                </TableRow>
+              )}
               </TableBody>
               <TableFooter>
                 <TableRow>

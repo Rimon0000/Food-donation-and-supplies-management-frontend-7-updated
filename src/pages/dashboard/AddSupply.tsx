@@ -39,10 +39,10 @@ const AddSupply = () => {
 }
 
   return (
-    <div className="text-center my-4">
-        <h1 className="text-3xl font-semibold mb-4"> Add a New Supply</h1>
+    <div className="">
+        <h1 className="text-3xl font-semibold mb-2 border-l-4 pl-4 border-green-700" data-aos="fade-right"> Add a New Supply</h1>
         <div className="w-full flex justify-center items-center">
-            <form onSubmit={handleAddNewSupply} className="shadow-xl border rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5">
+            <form onSubmit={handleAddNewSupply} className="shadow-xl border rounded px-8 pt-6 w-full md:w-3/5 lg:w-2/5 hover:rounded-2xl hover:border-blue-300 duration-300">
                 <div className="mb-2">
                     <Label htmlFor="Image" className="flex text-left py-2 text-base">Image</Label>
                     <input className="shadow  border rounded w-full py-2 px-3 text-slate-950"
@@ -87,7 +87,7 @@ const AddSupply = () => {
                 </div>
                 
                 <div className="pb-3 mt-1">
-                  <Button type="submit">Add Supply</Button>
+                  <Button className="rounded-3xl hover:bg-green-700 hover:text-white" type="submit">Add Supply</Button>
                 </div>
             </form>
         </div>
